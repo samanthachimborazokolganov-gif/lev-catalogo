@@ -1,9 +1,9 @@
 /**
- * LEV WILD SPIRIT - MOTOR DE CATÁLOGO DINÁMICO v2.1
- * - Deep Linking independiente por categoría (#cascos, #guantes, #luces-delanteras, #luces-traseras, #audifonos, #gafas, #bolsas, #gorras, #componentes)
+ * LEV WILD SPIRIT - MOTOR DE CATÁLOGO DINÁMICO v2.2
+ * - Soporte para subpáginas estáticas (/cascos/, /guantes/, etc.) y Deep Linking (#cascos, #guantes, etc.)
+ * - URLs 100% limpias bajo el dominio oficial https://levwild.com/
  * - Selector interactivo de variantes de diseño y color en tarjeta y modal con sincronización en tiempo real
  * - Mensajes de WhatsApp predeterminados exactos con Nombre, Referencia, Color/Variante y Precio
- * - Botón de copiar enlace directo y compartir por WhatsApp con notificación Toast
  * - Showcase cinemático de videos demostrativos en ruta
  * - Zoom interactivo estilo Amazon con lupa de hover y Lightbox HD fullscreen
  */
@@ -11,10 +11,21 @@
 (function () {
   'use strict';
 
+  function getBasePrefix() {
+    if (typeof window !== 'undefined') {
+      if (window.location.protocol === 'file:') {
+        const scriptEl = document.querySelector('script[src*="app.js"]');
+        return scriptEl ? scriptEl.getAttribute('src').replace('app.js', '') : './';
+      }
+      return '/';
+    }
+    return './';
+  }
+
   // Configuración global
   const CONFIG = {
-    dataPath: 'data/productos.json',
-    imagesPath: 'images/products/',
+    dataPath: getBasePrefix() + 'data/productos.json',
+    imagesPath: getBasePrefix() + 'images/products/',
     defaultWhatsapp: '593985346800',
     siteUrl: 'https://levwild.com'
   };
@@ -176,12 +187,6 @@
 
   function getModalWhatsAppUrl(prod) {
     return getProductWhatsAppUrl(prod, 'Deseo realizar el pedido de');
-  }
-
-  function getCategoryWhatsAppShareUrl(catSlug, catName) {
-    const directUrl = `${CONFIG.siteUrl}/#${catSlug}`;
-    const text = `¡Hola! 👋 Te comparto nuestro catálogo oficial de *${catName}* en *LEV Wild Spirit* para que veas todos los modelos, diseños y colores disponibles:\n\n👉 ${directUrl}`;
-    return `https://wa.me/${CONFIG.defaultWhatsapp}?text=${encodeURIComponent(text)}`;
   }
 
   // ==========================================================================
@@ -359,7 +364,7 @@
   }
 
   // ==========================================================================
-  // 5. RENDERIZADO DEL CATÁLOGO DE PRODUCTOS Y ACCIONES DE CATEGORÍA
+  // 5. RENDERIZADO DEL CATÁLOGO DE PRODUCTOS
   // ==========================================================================
   function renderCatalog() {
     if (!DOM.catalogContainer) {
@@ -526,7 +531,7 @@
       : `<span class="price-pending">[Consultar PVP]</span>`;
 
     let specsHtml = '';
-    if (prod.especificaciones && Object.keys(prod.especificaciones).length > 0) {{
+    if (prod.especificaciones && Object.keys(prod.especificaciones).length > 0) {
       const specEntries = Object.entries(prod.especificaciones).slice(0, 3);
       specsHtml = `
         <div class="card-specs">
@@ -538,7 +543,7 @@
           `).join('')}
         </div>
       `;
-    }}
+    }
 
     let variantsRowHtml = '';
     if (hasVariants) {
@@ -667,18 +672,9 @@
   }
 
   // ==========================================================================
-  // 6. EVENTOS DE TARJETA, VARIANTES Y ACCIONES DE CATEGORÍA
+  // 6. EVENTOS DE TARJETA, VARIANTES Y ACCIONES
   // ==========================================================================
   function attachCategoryActionEvents() {
-    document.querySelectorAll('.btn-copy-cat-link').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const slug = btn.dataset.slug;
-        const name = btn.dataset.name;
-        copyCategoryLink(slug, name);
-      });
-    });
-
     document.querySelectorAll('.subfilter-chip').forEach(chip => {
       chip.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -689,35 +685,6 @@
         renderCatalog();
       });
     });
-  }
-
-  function copyCategoryLink(slug, name) {
-    const fullUrl = `${CONFIG.siteUrl}/#${slug}`;
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(fullUrl).then(() => {
-        showToast(`✅ ¡Enlace de ${name} copiado! Listo para pegar en WhatsApp.`);
-      }).catch(() => {
-        fallbackCopyText(fullUrl, name);
-      });
-    } else {
-      fallbackCopyText(fullUrl, name);
-    }
-  }
-
-  function fallbackCopyText(text, name) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand('copy');
-      showToast(`✅ ¡Enlace de ${name} copiado! Listo para pegar en WhatsApp.`);
-    } catch (err) {
-      showToast(`Enlace: ${text}`);
-    }
-    document.body.removeChild(ta);
   }
 
   function showToast(message) {
@@ -835,7 +802,6 @@
         const cardEl = pill.closest('.product-card');
         const targetProd = state.products.find(p => p.codigo === code);
         if (targetProd && cardEl) {
-          // Re-renderizar la tarjeta directamente con la variante seleccionada
           const tempContainer = document.createElement('div');
           tempContainer.innerHTML = renderProductCard(targetProd);
           const newCard = tempContainer.firstElementChild;
@@ -1306,6 +1272,14 @@
   }
 
   function checkDeepLink() {
+    // 0. Si la página tiene categoría inicial fija (subpáginas /cascos/, /guantes/, etc.)
+    const initialCat = document.body.dataset.initialCat;
+    const initialSubcat = document.body.dataset.subcat || 'todos';
+    if (initialCat) {
+      activateCategory(initialCat, initialSubcat, false);
+      return;
+    }
+
     const hash = window.location.hash.toLowerCase();
     const searchParams = new URLSearchParams(window.location.search);
     const prodParam = searchParams.get('producto') || searchParams.get('p');
