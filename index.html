@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEV Wild Spirit | Catálogo Oficial de Equipamiento Deportivo</title>
+  
+  <!-- SEO & Metatags -->
+  <meta name="description" id="metaDescription" content="Catálogo oficial de LEV Wild Spirit. Equipamiento de alto rendimiento para ciclismo, gimnasio y escalada: cascos, gafas polarizadas, audífonos deportivos, iluminación LED, guantes, pedales y bolsas técnicas.">
+  <meta name="keywords" content="LEV Wild Spirit, equipamiento deportivo, cascos ciclismo, gafas polarizadas, luces bicicleta, guantes ciclismo, bolsas gym magnéticas, escalada, pedal MTB">
+  <meta name="author" content="LEV Wild Spirit">
+  <meta name="theme-color" content="#0A0D14">
+  
+  <!-- Open Graph / Meta / Redes Sociales -->
+  <meta property="og:type" id="ogType" content="website">
+  <meta property="og:site_name" content="LEV Wild Spirit">
+  <meta property="og:title" id="ogTitle" content="LEV Wild Spirit | Catálogo Oficial de Equipamiento Deportivo">
+  <meta property="og:description" id="ogDescription" content="Explora el catálogo completo de equipamiento deportivo para Ciclismo, Gimnasio y Escalada.">
+  <meta property="og:image" id="ogImage" content="images/brand/logo-lev-nav.png">
+  <meta property="og:url" id="ogUrl" content="https://levwild.com/">
+  <meta property="og:locale" content="es_EC">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="LEV Wild Spirit | Catálogo Oficial de Equipamiento Deportivo">
+  <meta name="twitter:description" id="twitterDescription" content="Equipamiento de alto rendimiento para ciclismo, gimnasio y escalada.">
+  <meta name="twitter:image" id="twitterImage" content="images/brand/logo-lev-nav.png">
+  
+  <!-- Favicons Oficiales LEV Wild Spirit -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/brand/favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/brand/apple-touch-icon.png">
+
+  <!-- Datos Estructurados JSON-LD (Schema.org) -->
+  <script type="application/ld+json" id="structuredData">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LEV Wild Spirit",
+    "url": "https://levwild.com",
+    "description": "Catálogo oficial de equipamiento deportivo de alto rendimiento para ciclismo, gimnasio y escalada.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://levwild.com/?buscar={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <!-- Google Fonts: Outfit (Titulares atléticos) & Inter (Lectura limpia) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Estilos del Catálogo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light" class="theme-light">
+
+  <!-- Barra de Anuncios Superior -->
+  <div class="top-announcement">
+    <div class="container announcement-content">
+      <span class="announcement-badge">⚡ COLECCIÓN OFICIAL 2026</span>
+      <span class="announcement-text">Equipamiento técnico para atletas y deportistas &bull; Envíos a todo el país</span>
+      <a href="#catalogo" class="announcement-link">Ver Catálogo &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header / Barra de Navegación Moderna Sticky -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      
+      <!-- Logotipo Oficial LEV -->
+      <a href="#" class="brand-logo" aria-label="LEV Wild Spirit Inicio">
+        <img src="images/brand/logo-lev-nav.png" alt="LEV Wild Spirit Logo" width="180" height="48" class="logo-img">
+      </a>
+
+      <!-- Navegación de Disciplinas Desktop -->
+      <nav class="nav-desktop" id="navDesktop" aria-label="Disciplinas deportivas">
+        <button class="nav-btn active" data-discipline="todos" id="navBtnTodos">
+          <span class="nav-icon">⚡</span> Todos
+        </button>
+        <button class="nav-btn" data-discipline="ciclismo" id="navBtnCiclismo">
+          <span class="nav-icon">🚴</span> Ciclismo
+        </button>
+        <button class="nav-btn" data-discipline="gym" id="navBtnGym">
+          <span class="nav-icon">💪</span> Gym & Training
+        </button>
+        <button class="nav-btn" data-discipline="escalada" id="navBtnEscalada">
+          <span class="nav-icon">🧗</span> Escalada
+        </button>
+      </nav>
+
+      <!-- Acciones del Header -->
+      <div class="header-actions">
+        <!-- Selector de Modo Claro / Oscuro (Preview) -->
+        <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Cambiar tema de color" title="Alternar entre Fondo Blanco (Claro) y Modo Oscuro">
+          <svg class="sun-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Botón de Búsqueda Rápida -->
+        <button class="icon-btn search-toggle-btn" id="searchToggleBtn" aria-label="Abrir buscador" title="Buscar productos">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Botón WhatsApp Directo -->
+        <a href="https://wa.me/593985346800?text=%C2%A1Hola%20LEV%20Wild%20Spirit!%20%F0%9F%91%8B%20Estoy%20viendo%20el%20cat%C3%A1logo%20y%20deseo%20asesor%C3%ADa%20sobre%20sus%20productos." class="btn btn-whatsapp-header" id="headerWhatsappBtn" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 1.966 14.12 .94 11.503.94c-5.44 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.181l-.959 3.501 3.616-.948l.307.182zm11.391-7.795c-.328-.162-1.94-.949-2.24-.1.057-.301-.15-.406-.328-.488-.3-.136-.527-.243-.728-.544-.2-.301-.2-.581-.1-.861.1-.281.428-.681.628-.881.2-.201.272-.281.399-.481.129-.2.057-.381-.043-.581-.1-.2-.828-1.971-1.128-2.693-.3-.721-.586-.622-.8-.632l-.685-.01c-.243 0-.643.09-.971.451-.328.361-1.257 1.213-1.257 2.946 0 1.733 1.271 3.407 1.443 3.637.171.23 2.5 3.778 6.057 5.283.846.357 1.506.57 2.02.729.85.267 1.624.23 2.235.14.68-.101 2.086-.842 2.371-1.663.286-.822.286-1.523.2-1.663-.085-.141-.314-.221-.643-.382z"/>
+          </svg>
+          <span class="btn-text">Pedir por WhatsApp</span>
+        </a>
+
+        <!-- Botón Menú Hamburguesa Móvil -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-content">
+        <div class="mobile-theme-row" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);">
+          <span style="font-family: var(--font-headline); font-weight: 700; font-size: 0.85rem; color: var(--text-secondary);">Apariencia:</span>
+          <button class="drawer-pill" id="mobileThemeToggleBtn" style="padding: 6px 14px; font-size: 0.8rem;">
+            ☀️ Fondo Blanco
+          </button>
+        </div>
+        <div class="mobile-disciplines">
+          <span class="drawer-title">DISCIPLINAS</span>
+          <div class="mobile-pills-grid">
+            <button class="drawer-pill active" data-discipline="todos">⚡ Todos</button>
+            <button class="drawer-pill" data-discipline="ciclismo">🚴 Ciclismo</button>
+            <button class="drawer-pill" data-discipline="gym">💪 Gym & Training</button>
+            <button class="drawer-pill" data-discipline="escalada">🧗 Escalada</button>
+          </div>
+        </div>
+        <div class="mobile-categories-list" id="mobileCategoriesList">
+          <span class="drawer-title">CATEGORÍAS</span>
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section Deportivo de Alto Impacto con Fondo Ciclista Atmosférico Difuminado -->
+  <section class="hero-section" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-tag animate-fade-in">
+          <span class="tag-dot"></span> ALTO RENDIMIENTO &bull; EQUIPAMIENTO DE ÉLITE
+        </div>
+        <h1 class="hero-title animate-fade-in">
+          POTENCIA TU <br>
+          <span class="text-gradient">RENDIMIENTO</span>
+        </h1>
+        <p class="hero-subtitle animate-fade-in">
+          Diseñado para la resistencia, el control y la superación en cada ruta, entrenamiento y ascenso.
+        </p>
+
+        <!-- Pastillas de Acceso Rápido por Categoría Directa para WhatsApp y Navegación -->
+        <div class="hero-disciplines-bar animate-fade-in" id="heroCategoryQuickBar">
+          <a href="#cascos" class="hero-quick-tag" data-cat="cascos">
+            <span class="icon">🪖</span>
+            <span class="label">Cascos</span>
+          </a>
+          <a href="#guantes" class="hero-quick-tag" data-cat="guantes">
+            <span class="icon">🧤</span>
+            <span class="label">Guantes</span>
+          </a>
+          <a href="#luces-delanteras" class="hero-quick-tag" data-cat="luces-delanteras">
+            <span class="icon">🔦</span>
+            <span class="label">Luces Delanteras</span>
+          </a>
+          <a href="#luces-traseras" class="hero-quick-tag" data-cat="luces-traseras">
+            <span class="icon">🚨</span>
+            <span class="label">Luces Traseras</span>
+          </a>
+          <a href="#audifonos" class="hero-quick-tag" data-cat="audifonos">
+            <span class="icon">🎧</span>
+            <span class="label">Audífonos</span>
+          </a>
+          <a href="#gafas" class="hero-quick-tag" data-cat="gafas">
+            <span class="icon">🕶️</span>
+            <span class="label">Gafas</span>
+          </a>
+          <a href="#bolsas" class="hero-quick-tag" data-cat="bolsas">
+            <span class="icon">🎒</span>
+            <span class="label">Bolsas & Magnesio</span>
+          </a>
+        </div>
+
+        <div class="hero-cta-group animate-fade-in">
+          <a href="#catalogo" class="btn btn-primary btn-lg">
+            <span>Explorar Catálogo</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+          <a href="https://wa.me/593985346800?text=%C2%A1Hola%20LEV%20Wild%20Spirit!%20%F0%9F%91%8B%20Deseo%20asesor%C3%ADa%20personalizada%20sobre%20el%20equipamiento%20deportivo." target="_blank" rel="noopener noreferrer" class="btn btn-secondary-outline btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 1.966 14.12 .94 11.503.94c-5.44 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.181l-.959 3.501 3.616-.948l.307.182zm11.391-7.795c-.328-.162-1.94-.949-2.24-.1.057-.301-.15-.406-.328-.488-.3-.136-.527-.243-.728-.544-.2-.301-.2-.581-.1-.861.1-.281.428-.681.628-.881.2-.201.272-.281.399-.481.129-.2.057-.381-.043-.581-.1-.2-.828-1.971-1.128-2.693-.3-.721-.586-.622-.8-.632l-.685-.01c-.243 0-.643.09-.971.451-.328.361-1.257 1.213-1.257 2.946 0 1.733 1.271 3.407 1.443 3.637.171.23 2.5 3.778 6.057 5.283.846.357 1.506.57 2.02.729.85.267 1.624.23 2.235.14.68-.101 2.086-.842 2.371-1.663.286-.822.286-1.523.2-1.663-.085-.141-.314-.221-.643-.382z"/>
+            </svg>
+            <span>Asesoría WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Barra de Filtros, Categorías y Búsqueda Interactiva -->
+  <section class="filter-sticky-bar" id="filterBar">
+    <div class="container">
+      <div class="filter-bar-inner">
+        
+        <!-- Carrusel de Pastillas de Categoría -->
+        <div class="category-pills-scroll" id="categoryPillsContainer">
+          <!-- Renderizado dinámico de categorías -->
+        </div>
+
+        <!-- Buscador Integrado -->
+        <div class="search-box-wrapper" id="searchBoxWrapper">
+          <div class="search-input-container">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por producto, código, atributo..." aria-label="Buscar producto">
+            <button id="searchClearBtn" class="search-clear-btn" aria-label="Limpiar búsqueda" style="display: none;">&times;</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Resumen de Resultados Activos -->
+      <div class="active-filter-summary" id="activeFilterSummary">
+        <span id="resultsCountText">Mostrando todos los productos</span>
+        <button id="resetFiltersBtn" class="reset-filters-btn" style="display: none;">Restablecer filtros</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenedor Principal del Catálogo -->
+  <main class="catalog-main" id="catalogo">
+    <div class="container">
+      
+      <!-- Estado de Carga -->
+      <div id="catalogLoading" class="catalog-loading">
+        <div class="spinner"></div>
+        <p>Cargando catálogo LEV Wild Spirit...</p>
+      </div>
+
+      <!-- Contenedor Dinámico de Productos (Categorías y Grids) -->
+      <div id="catalogContainer" class="catalog-container">
+        <!-- Renderizado dinámicamente desde data/productos.json -->
+      </div>
+
+      <!-- Estado Sin Resultados -->
+      <div id="noResultsState" class="no-results-state" style="display: none;">
+        <div class="no-results-icon">🔍</div>
+        <h3>No se encontraron productos</h3>
+        <p>No hay coincidencias con los términos de búsqueda o filtros seleccionados.</p>
+        <button class="btn btn-primary" id="clearSearchActionBtn">Ver Todo el Catálogo</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal / Lightbox de Detalle Completo de Producto (Soporta Galería de Fotos y Video) -->
+  <div class="product-modal-backdrop" id="productModal" aria-hidden="true" role="dialog">
+    <div class="product-modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar ventana">&times;</button>
+      
+      <div class="modal-body" id="modalBody">
+        <!-- Contenido generado dinámicamente al hacer clic en un producto -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Zoom Pantalla Completa HD (Estilo Amazon / Lightbox con Pan & Zoom) -->
+  <div class="image-fullscreen-modal" id="imageFullscreenModal" aria-hidden="true" role="dialog">
+    <div class="zoom-toolbar">
+      <div class="zoom-toolbar-left">
+        <span class="zoom-photo-title" id="zoomPhotoTitle">Detalle de Producto</span>
+        <span class="zoom-photo-counter" id="zoomPhotoCounter">Foto 1 de 1</span>
+      </div>
+      <div class="zoom-toolbar-actions">
+        <button class="zoom-tool-btn" id="zoomInBtn" title="Acercar (+)" aria-label="Acercar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <button class="zoom-tool-btn" id="zoomOutBtn" title="Alejar (-)" aria-label="Alejar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <button class="zoom-tool-btn" id="zoomResetBtn" title="Restablecer tamaño (1:1)" aria-label="Restablecer">1:1</button>
+        <button class="zoom-tool-btn zoom-close-btn" id="zoomCloseBtn" title="Cerrar (Esc)" aria-label="Cerrar">&times;</button>
+      </div>
+    </div>
+
+    <div class="zoom-viewport" id="zoomViewport">
+      <img src="" alt="Zoom Producto" id="zoomFullscreenImg" class="zoom-fullscreen-img">
+      <button class="zoom-nav-btn prev" id="zoomNavPrev" aria-label="Foto anterior">&lsaquo;</button>
+      <button class="zoom-nav-btn next" id="zoomNavNext" aria-label="Foto siguiente">&rsaquo;</button>
+    </div>
+
+    <div class="zoom-bottom-thumbnails" id="zoomThumbnails">
+      <!-- Generado dinámicamente -->
+    </div>
+  </div>
+
+  <!-- Botón Flotante de WhatsApp para Consulta Rápida -->
+  <a href="https://wa.me/593985346800?text=%C2%A1Hola%20LEV%20Wild%20Spirit!%20%F0%9F%91%8B%20Estoy%20viendo%20el%20cat%C3%A1logo%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n." class="whatsapp-floating-btn" id="whatsappFloatingBtn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 1.966 14.12 .94 11.503.94c-5.44 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.181l-.959 3.501 3.616-.948l.307.182zm11.391-7.795c-.328-.162-1.94-.949-2.24-.1.057-.301-.15-.406-.328-.488-.3-.136-.527-.243-.728-.544-.2-.301-.2-.581-.1-.861.1-.281.428-.681.628-.881.2-.201.272-.281.399-.481.129-.2.057-.381-.043-.581-.1-.2-.828-1.971-1.128-2.693-.3-.721-.586-.622-.8-.632l-.685-.01c-.243 0-.643.09-.971.451-.328.361-1.257 1.213-1.257 2.946 0 1.733 1.271 3.407 1.443 3.637.171.23 2.5 3.778 6.057 5.283.846.357 1.506.57 2.02.729.85.267 1.624.23 2.235.14.68-.101 2.086-.842 2.371-1.663.286-.822.286-1.523.2-1.663-.085-.141-.314-.221-.643-.382z"/>
+    </svg>
+    <span class="floating-tooltip">¿Consultas o pedidos? Chatea con nosotros</span>
+  </a>
+
+  <!-- Footer Deportivo -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="images/brand/logo-lev-nav.png" alt="LEV Wild Spirit" width="200" class="footer-logo">
+        <p class="footer-tagline">
+          Equipamiento de alto rendimiento diseñado para desafiar tus límites en la ruta, el gimnasio y la montaña.
+        </p>
+        <div class="footer-disciplines">
+          <span>🚴 Ciclismo</span>
+          <span>💪 Gimnasio</span>
+          <span>🧗 Escalada</span>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-col-title">CATEGORÍAS</h4>
+        <ul class="footer-links" id="footerCategoriesList">
+          <!-- Generado dinámicamente -->
+        </ul>
+      </div>
+
+      <div class="footer-social-contact">
+        <h4 class="footer-col-title">SÍGUENOS EN REDES</h4>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/lev.wildspirit/" target="_blank" rel="noopener noreferrer" class="social-btn instagram-btn" aria-label="Instagram LEV Wild Spirit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <div class="social-btn-info">
+              <span class="social-btn-platform">Instagram</span>
+              <span class="social-btn-handle">@lev.wildspirit</span>
+            </div>
+          </a>
+
+          <a href="https://www.facebook.com/profile.php?id=61593353747996" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn" aria-label="Facebook LEV Wild Spirit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <div class="social-btn-info">
+              <span class="social-btn-platform">Facebook</span>
+              <span class="social-btn-handle">LEV Wild Spirit</span>
+            </div>
+          </a>
+        </div>
+
+        <h4 class="footer-col-title" style="margin-top: 24px;">ATENCIÓN & PEDIDOS</h4>
+        <a href="https://wa.me/593985346800?text=%C2%A1Hola%20LEV%20Wild%20Spirit!%20%F0%9F%91%8B%20Quiero%20hacer%20un%20pedido%20o%20consultar%20disponibilidad." class="btn btn-whatsapp-footer" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 1.966 14.12 .94 11.503.94c-5.44 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.181l-.959 3.501 3.616-.948l.307.182zm11.391-7.795c-.328-.162-1.94-.949-2.24-.1.057-.301-.15-.406-.328-.488-.3-.136-.527-.243-.728-.544-.2-.301-.2-.581-.1-.861.1-.281.428-.681.628-.881.2-.201.272-.281.399-.481.129-.2.057-.381-.043-.581-.1-.2-.828-1.971-1.128-2.693-.3-.721-.586-.622-.8-.632l-.685-.01c-.243 0-.643.09-.971.451-.328.361-1.257 1.213-1.257 2.946 0 1.733 1.271 3.407 1.443 3.637.171.23 2.5 3.778 6.057 5.283.846.357 1.506.57 2.02.729.85.267 1.624.23 2.235.14.68-.101 2.086-.842 2.371-1.663.286-.822.286-1.523.2-1.663-.085-.141-.314-.221-.643-.382z"/>
+          </svg>
+          <span>WhatsApp 0985346800</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>&copy; 2026 LEV Wild Spirit &bull; Todos los derechos reservados.</p>
+        <div class="footer-social-micro">
+          <a href="https://www.instagram.com/lev.wildspirit/" target="_blank" rel="noopener noreferrer">@lev.wildspirit</a> &bull; 
+          <a href="https://www.facebook.com/profile.php?id=61593353747996" target="_blank" rel="noopener noreferrer">Facebook: LEV Wild Spirit</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notificación Flotante Toast para Copiado de Enlaces -->
+  <div class="toast-notification" id="toastNotification" aria-live="polite"></div>
+
+  <!-- Script Principal de la Aplicación -->
+  <script src="app.js"></script>
+</body>
+</html>

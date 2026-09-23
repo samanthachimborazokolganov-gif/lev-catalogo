@@ -1,0 +1,1028 @@
+{
+  "marca": {
+    "nombre": "LEV Wild Spirit",
+    "eslogan": "Potencia tu Rendimiento",
+    "descripcion": "Equipamiento de alto rendimiento para ciclismo, gimnasio y escalada.",
+    "whatsapp_numero": "593985346800",
+    "whatsapp_mensaje_template": "¡Hola! Estoy interesado en {nombre} (Ref: {codigo})",
+    "redes": {
+      "instagram": "https://www.instagram.com/lev.wildspirit/",
+      "instagram_usuario": "@lev.wildspirit",
+      "facebook": "https://www.facebook.com/profile.php?id=61593353747996",
+      "facebook_usuario": "LEV Wild Spirit"
+    }
+  },
+  "disciplinas": [
+    {
+      "id": "todos",
+      "nombre": "Todo el Catálogo",
+      "icono": "⚡"
+    },
+    {
+      "id": "ciclismo",
+      "nombre": "Ciclismo",
+      "icono": "🚴"
+    },
+    {
+      "id": "gym",
+      "nombre": "Gym & Training",
+      "icono": "💪"
+    },
+    {
+      "id": "escalada",
+      "nombre": "Escalada",
+      "icono": "🧗"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "Cascos",
+      "nombre": "Cascos",
+      "icono": "🪖",
+      "disciplina": "ciclismo",
+      "slug": "cascos"
+    },
+    {
+      "id": "Guantes",
+      "nombre": "Guantes",
+      "icono": "🧤",
+      "disciplina": "ciclismo",
+      "slug": "guantes"
+    },
+    {
+      "id": "Iluminación",
+      "nombre": "Iluminación",
+      "icono": "💡",
+      "disciplina": "ciclismo",
+      "slug": "iluminacion"
+    },
+    {
+      "id": "Audífonos",
+      "nombre": "Audífonos",
+      "icono": "🎧",
+      "disciplina": "gym",
+      "slug": "audifonos"
+    },
+    {
+      "id": "Gafas",
+      "nombre": "Gafas",
+      "icono": "🕶️",
+      "disciplina": "ciclismo",
+      "slug": "gafas"
+    },
+    {
+      "id": "Bolsas",
+      "nombre": "Bolsas y Magnesio",
+      "icono": "🎒",
+      "disciplina": "todos",
+      "slug": "bolsas"
+    },
+    {
+      "id": "Gorras",
+      "nombre": "Gorras",
+      "icono": "🧢",
+      "disciplina": "ciclismo",
+      "slug": "gorras"
+    },
+    {
+      "id": "Componentes",
+      "nombre": "Componentes",
+      "icono": "⚙️",
+      "disciplina": "ciclismo",
+      "slug": "componentes"
+    }
+  ],
+  "productos": [
+    {
+      "codigo": "LEV-CAS-12H15-001",
+      "categoria": "Cascos",
+      "subcategoria": "Plomo Mate",
+      "nombre": "Casco Promend 12H15",
+      "precio": 45.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con visor magnético y luz trasera LED integrada.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético; Luz trasera: LED integrada",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético",
+        "Luz trasera": "LED integrada"
+      },
+      "fotos": [
+        "casco-promend-12H15-plomo-01.webp",
+        "casco-promend-12H15-plomo-02.webp",
+        "casco-promend-12H15-plomo-03.webp",
+        "casco-promend-12H15-plomo-04.webp",
+        "casco-promend-12H15-plomo-05.webp",
+        "casco-promend-12H15-plomo-06.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H15-002",
+      "categoria": "Cascos",
+      "subcategoria": "Negro con Blanco",
+      "nombre": "Casco Promend 12H15",
+      "precio": 45.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con visor magnético y luz trasera LED integrada.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético; Luz trasera: LED integrada",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético",
+        "Luz trasera": "LED integrada"
+      },
+      "fotos": [
+        "casco-promend-12H15-negrob-01.webp",
+        "casco-promend-12H15-negrob-02.webp",
+        "casco-promend-12H15-negrob-03.webp",
+        "casco-promend-12H15-negrob-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H15-003",
+      "categoria": "Cascos",
+      "subcategoria": "Negro con Rojo",
+      "nombre": "Casco Promend 12H15",
+      "precio": 45.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con visor magnético y luz trasera LED integrada.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético; Luz trasera: LED integrada",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético",
+        "Luz trasera": "LED integrada"
+      },
+      "fotos": [
+        "casco-promend-12H15-negror-01.webp",
+        "casco-promend-12H15-negror-02.webp",
+        "casco-promend-12H15-negror-03.webp",
+        "casco-promend-12H15-negror-04.webp",
+        "casco-promend-12H15-negror-05.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H22N-001",
+      "categoria": "Cascos",
+      "subcategoria": "Negro",
+      "nombre": "Casco Promend 12H22N",
+      "precio": 37.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético, ideal para ruta.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-promend-12H22N-negro-01.webp",
+        "casco-promend-12H22N-negro-02.webp",
+        "casco-promend-12H22N-negro-03.webp",
+        "casco-promend-12H22N-negro-04.webp",
+        "casco-promend-12H22N-negro-05.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H22N-002",
+      "categoria": "Cascos",
+      "subcategoria": "Blanco",
+      "nombre": "Casco Promend 12H22N",
+      "precio": 37.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético, ideal para ruta.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-promend-12H22N-blanco-01.webp",
+        "casco-promend-12H22N-blanco-02.webp",
+        "casco-promend-12H22N-blanco-03.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H22N-003",
+      "categoria": "Cascos",
+      "subcategoria": "Rojo con Negro",
+      "nombre": "Casco Promend 12H22N",
+      "precio": 37.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético, ideal para ruta.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-promend-12H22N-negrorojo-01.webp",
+        "casco-promend-12H22N-negrorojo-02.webp",
+        "casco-promend-12H22N-negrorojo-03.webp",
+        "casco-promend-12H22N-negrorojo-04.webp",
+        "casco-promend-12H22N-negrorojo-05.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H09-001",
+      "categoria": "Cascos",
+      "subcategoria": "Blanco",
+      "nombre": "Casco Promend 12H09",
+      "precio": 29.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético, ideal para ruta.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-promend-12H09-blanco-01.webp",
+        "casco-promend-12H09-blanco-02.webp",
+        "casco-promend-12H09-blanco-03.webp",
+        "casco-promend-12H09-blanco-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H09-002",
+      "categoria": "Cascos",
+      "subcategoria": "Negro con Plomo",
+      "nombre": "Casco Promend 12H09",
+      "precio": 29.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético, ideal para ruta.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-promend-12H09-negroplomo-01.webp",
+        "casco-promend-12H09-negroplomo-02.webp",
+        "casco-promend-12H09-negroplomo-03.webp",
+        "casco-promend-12H09-negroplomo-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-12H09-003",
+      "categoria": "Cascos",
+      "subcategoria": "Negro con Rojo",
+      "nombre": "Casco Promend 12H09",
+      "precio": 29.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético, ideal para ruta.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-promend-12H09-negrorojo-01.webp",
+        "casco-promend-12H09-negrorojo-02.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-CAS-11H01-001",
+      "categoria": "Cascos",
+      "subcategoria": "Negro con Blanco",
+      "nombre": "Casco Bike Boy 11H01",
+      "precio": 25.0,
+      "precio_distribuidor": "",
+      "descripcion": "Casco aerodinámico de alta protección, con ventilación optimizada y visor magnético.",
+      "especificaciones_raw": "Estructura: EPS alta densidad; Ajuste: Dial trasero ajustable; Ventilación: Canales integrados; Peso: Liviano; Visor: Magnético",
+      "especificaciones": {
+        "Estructura": "EPS alta densidad",
+        "Ajuste": "Dial trasero ajustable",
+        "Ventilación": "Canales integrados",
+        "Peso": "Liviano",
+        "Visor": "Magnético"
+      },
+      "fotos": [
+        "casco-bikeboy-11H01-negrob-01.webp",
+        "casco-bikeboy-11H01-negrob-02.webp",
+        "casco-bikeboy-11H01-negrob-03.webp",
+        "casco-bikeboy-11H01-negrob-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-GAF-10H1-001",
+      "categoria": "Gafas",
+      "subcategoria": "Negro con Azul",
+      "nombre": "Gafa ROCKBROS 10H1",
+      "precio": 29.0,
+      "precio_distribuidor": "",
+      "descripcion": "Gafa deportiva ROCKBROS con protección UV 100% y lente polarizado, armazón ajustable a la medida.",
+      "especificaciones_raw": "Protección UV: 100%; Lente: Polarizado; Armazón: Ajustable a la medida; Incluye: Estuche, bolsa de tela y paño de limpieza",
+      "especificaciones": {
+        "Protección UV": "100%",
+        "Lente": "Polarizado",
+        "Armazón": "Ajustable a la medida",
+        "Incluye": "Estuche, bolsa de tela y paño de limpieza"
+      },
+      "fotos": [
+        "gafa-rockbros-10h1-negroazul-01.webp",
+        "gafa-rockbros-10h1-negroazul-02.webp",
+        "gafa-rockbros-10h1-negroazul-03.webp",
+        "gafa-rockbros-10h1-negroazul-04.webp",
+        "gafa-rockbros-10h1-negroazul-05.webp",
+        "gafa-rockbros-10h1-negroazul-06.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-GAF-10H1-002",
+      "categoria": "Gafas",
+      "subcategoria": "Blanco con Azul",
+      "nombre": "Gafa ROCKBROS 10H1",
+      "precio": 29.0,
+      "precio_distribuidor": "",
+      "descripcion": "Gafa deportiva ROCKBROS con protección UV 100% y lente polarizado, armazón ajustable a la medida.",
+      "especificaciones_raw": "Protección UV: 100%; Lente: Polarizado; Armazón: Ajustable a la medida; Incluye: Estuche, bolsa de tela y paño de limpieza",
+      "especificaciones": {
+        "Protección UV": "100%",
+        "Lente": "Polarizado",
+        "Armazón": "Ajustable a la medida",
+        "Incluye": "Estuche, bolsa de tela y paño de limpieza"
+      },
+      "fotos": [
+        "gafa-rockbros-10h1-blancoazul-01.webp",
+        "gafa-rockbros-10h1-blancoazul-02.webp",
+        "gafa-rockbros-10h1-blancoazul-03.webp",
+        "gafa-rockbros-10h1-blancoazul-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-GAF-10H1-003",
+      "categoria": "Gafas",
+      "subcategoria": "Verde con Blanco",
+      "nombre": "Gafa ROCKBROS 10H1",
+      "precio": 29.0,
+      "precio_distribuidor": "",
+      "descripcion": "Gafa deportiva ROCKBROS con protección UV 100% y lente polarizado, armazón ajustable a la medida.",
+      "especificaciones_raw": "Protección UV: 100%; Lente: Polarizado; Armazón: Ajustable a la medida; Incluye: Estuche, bolsa de tela y paño de limpieza",
+      "especificaciones": {
+        "Protección UV": "100%",
+        "Lente": "Polarizado",
+        "Armazón": "Ajustable a la medida",
+        "Incluye": "Estuche, bolsa de tela y paño de limpieza"
+      },
+      "fotos": [
+        "gafa-rockbros-10h1-verdeblanco-01.webp",
+        "gafa-rockbros-10h1-verdeblanco-02.webp",
+        "gafa-rockbros-10h1-verdeblanco-03.webp",
+        "gafa-rockbros-10h1-verdeblanco-04.webp",
+        "gafa-rockbros-10h1-verdeblanco-05.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-GAF-10H2-001",
+      "categoria": "Gafas",
+      "subcategoria": "Negro con Rojo",
+      "nombre": "Gafa ROCKBROS 10H2",
+      "precio": 35.0,
+      "precio_distribuidor": "",
+      "descripcion": "Gafa deportiva ROCKBROS con protección UV 100% y lente polarizado, armazón ajustable a la medida, incluye 4 visores intercambiables adicionales.",
+      "especificaciones_raw": "Protección UV: 100%; Lente: Polarizado; Armazón: Ajustable a la medida; Visores adicionales incluidos: 4; Incluye: Estuche, bolsa de tela y paño de limpieza",
+      "especificaciones": {
+        "Protección UV": "100%",
+        "Lente": "Polarizado",
+        "Armazón": "Ajustable a la medida",
+        "Visores adicionales incluidos": "4",
+        "Incluye": "Estuche, bolsa de tela y paño de limpieza"
+      },
+      "fotos": [
+        "gafa-rockbros-10h2-negrorojo-01.webp",
+        "gafa-rockbros-10h2-negrorojo-02.webp",
+        "gafa-rockbros-10h2-negrorojo-03.webp",
+        "gafa-rockbros-10h2-negrorojo-04.webp",
+        "gafa-rockbros-10h2-negrorojo-05.webp",
+        "gafa-rockbros-10h2-negrorojo-06.webp",
+        "gafa-rockbros-10h2-negrorojo-07.webp",
+        "gafa-rockbros-10h2-negrorojo-08.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-AUD-H12-001",
+      "categoria": "Audífonos",
+      "subcategoria": "Negros",
+      "nombre": "Audífonos deportivos H12",
+      "precio": 33.0,
+      "precio_distribuidor": "",
+      "descripcion": "Audífonos deportivos inalámbricos, ultraligeros y resistentes al agua, ideales para entrenar.",
+      "especificaciones_raw": "Conexión: Bluetooth inalámbrico; Alcance: 10 metros; Tiempo de carga: 2 horas.",
+      "especificaciones": {
+        "Conexión": "Bluetooth inalámbrico",
+        "Alcance": "10 metros",
+        "Tiempo de carga": "2 horas."
+      },
+      "fotos": [
+        "audifono-h12-negro-01.webp",
+        "audifono-h12-negro-02.webp",
+        "audifono-h12-negro-03.webp"
+      ],
+      "disciplinas": [
+        "Gym",
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-AUD-OPENAIR-001",
+      "categoria": "Audífonos",
+      "subcategoria": "Negros",
+      "nombre": "Audífonos deportivos OpenAir Duet",
+      "precio": 30.0,
+      "precio_distribuidor": "",
+      "descripcion": "Audífonos deportivos inalámbricos, ultraligeros y resistentes al agua, con batería de larga duración.",
+      "especificaciones_raw": "Conexión: Bluetooth inalámbrico; Autonomía: 5 horas; Resistencia al agua: IPX5; Peso: Ultraligero",
+      "especificaciones": {
+        "Conexión": "Bluetooth inalámbrico",
+        "Autonomía": "5 horas",
+        "Resistencia al agua": "IPX5",
+        "Peso": "Ultraligero"
+      },
+      "fotos": [
+        "audifono-openair-duet-negro-01.webp",
+        "audifono-openair-duet-negro-02.webp",
+        "audifono-openair-duet-negro-03.webp",
+        "audifono-openair-duet-negro-04.webp"
+      ],
+      "disciplinas": [
+        "Gym",
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-LUZ-FRENO-001",
+      "categoria": "Iluminación",
+      "subcategoria": "Aluminio Pro (Automática)",
+      "nombre": "Luz Trasera Aluminio con Sensor de Freno",
+      "precio": 21.0,
+      "precio_distribuidor": "17",
+      "descripcion": "Luz trasera profesional de alta potencia con sensor de freno, que brilla más fuerte automáticamente al frenar para máxima seguridad en tus rutas.",
+      "especificaciones_raw": "Material: 100% aluminio; Sensor de freno: Automático (brilla más fuerte al frenar); Modos de luz: 6; Operación: Manual o automática; Carga: USB; Resistencia: Impermeable (lluvia extrema)",
+      "especificaciones": {
+        "Material": "100% aluminio",
+        "Sensor de freno": "Automático (brilla más fuerte al frenar)",
+        "Modos de luz": "6",
+        "Operación": "Manual o automática",
+        "Carga": "USB",
+        "Resistencia": "Impermeable (lluvia extrema)"
+      },
+      "fotos": [
+        "luz-trasera-sensorfreno-01.webp",
+        "luz-trasera-sensorfreno-02.webp",
+        "luz-trasera-sensorfreno-03.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-LUZ-FRENO-002",
+      "categoria": "Iluminación",
+      "subcategoria": "Polímero Ligero (Automática)",
+      "nombre": "Luz Trasera Ligera con Sensor de Freno",
+      "precio": 15.0,
+      "precio_distribuidor": "13",
+      "descripcion": "Luz trasera ligera con sensor de freno automático. Aumenta su brillo al frenar, brindando máxima seguridad en tus rutas a un precio accesible.",
+      "especificaciones_raw": "Material: Plástico de alta resistencia (ligero); Sensor inteligente: Detección automática de frenado (aumenta el brillo); Modos de iluminación: 6 (fijos y parpadeantes); Operación: Dual (Manual e Inteligente/Automática); Carga: Batería recargable vía USB; Resistencia: Resistente al agua y salpicaduras.",
+      "especificaciones": {
+        "Material": "Plástico de alta resistencia (ligero)",
+        "Sensor inteligente": "Detección automática de frenado (aumenta el brillo)",
+        "Modos de iluminación": "6 (fijos y parpadeantes)",
+        "Operación": "Dual (Manual e Inteligente/Automática)",
+        "Carga": "Batería recargable vía USB",
+        "Resistencia": "Resistente al agua y salpicaduras."
+      },
+      "fotos": [
+        "luz-trasera-sensorfreno002-01.webp",
+        "luz-trasera-sensorfreno002-02.webp",
+        "luz-trasera-sensorfreno002-03.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-LUZ-1300-001",
+      "categoria": "Iluminación",
+      "subcategoria": "Delantera",
+      "nombre": "Luz Delantera 1300 Lúmenes",
+      "precio": 33.0,
+      "precio_distribuidor": "21",
+      "descripcion": "Luz delantera de brillo extremo para visibilidad total en rutas de montaña o ciudad, incluso en la oscuridad más absoluta.",
+      "especificaciones_raw": "Lúmenes: 1300; Carga: USB recargable; Soporte: Estable, no se mueve con baches; Resistencia: Al agua; Modos: Varios (intensidad ajustable)",
+      "especificaciones": {
+        "Lúmenes": "1300",
+        "Carga": "USB recargable",
+        "Soporte": "Estable, no se mueve con baches",
+        "Resistencia": "Al agua",
+        "Modos": "Varios (intensidad ajustable)"
+      },
+      "fotos": [
+        "luz-delantera-1300lm-01.webp",
+        "luz-delantera-1300lm-02.webp",
+        "luz-delantera-1300lm-03.webp",
+        "luz-delantera-1300lm-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-LUZ-1000-001",
+      "categoria": "Iluminación",
+      "subcategoria": "Delantera",
+      "nombre": "Luz Delantera 1000 Lúmenes",
+      "precio": 28.0,
+      "precio_distribuidor": "16",
+      "descripcion": "Luz delantera de brillo extremo para visibilidad total en rutas de montaña o ciudad, incluso en la oscuridad más absoluta.",
+      "especificaciones_raw": "Lúmenes: 1000; Carga: USB recargable; Soporte: Estable, no se mueve con baches; Resistencia: Al agua; Modos: Varios (intensidad ajustable)",
+      "especificaciones": {
+        "Lúmenes": "1000",
+        "Carga": "USB recargable",
+        "Soporte": "Estable, no se mueve con baches",
+        "Resistencia": "Al agua",
+        "Modos": "Varios (intensidad ajustable)"
+      },
+      "fotos": [
+        "luz-delantera-1000lm-01.webp",
+        "luz-delantera-1000lm-02.webp",
+        "luz-delantera-1000lm-03.webp",
+        "luz-delantera-1000lm-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ],
+      "video": "Luz delantera 1000L.mp4"
+    },
+    {
+      "codigo": "LEV-LUZ-COB-001",
+      "categoria": "Iluminación",
+      "subcategoria": "Trasera",
+      "nombre": "Luz Trasera LED COB Recargable",
+      "precio": 11.0,
+      "precio_distribuidor": "9",
+      "descripcion": "Luz trasera tipo COB de alto brillo, súper ligera y resistente, que se carga como un celular sin necesidad de pilas.",
+      "especificaciones_raw": "Tecnología: LED COB; Batería: Litio 500 mAh; Carga: USB (cable incluido); Soporte: Liga ajustable 12-32 mm; Instalación: Sin herramientas; Modos: Varios; Incluye: Luz LED RPL-2266, cable de carga USB, soporte de fijación",
+      "especificaciones": {
+        "Tecnología": "LED COB",
+        "Batería": "Litio 500 mAh",
+        "Carga": "USB (cable incluido)",
+        "Soporte": "Liga ajustable 12-32 mm",
+        "Instalación": "Sin herramientas",
+        "Modos": "Varios",
+        "Incluye": "Luz LED RPL-2266, cable de carga USB, soporte de fijación"
+      },
+      "fotos": [
+        "luz-trasera-cob-01.webp",
+        "luz-trasera-cob-02.webp",
+        "luz-trasera-cob-03.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-LUZ-DUAL-001",
+      "categoria": "Iluminación",
+      "subcategoria": "Dual (Delantera/Trasera)",
+      "nombre": "Luz Dual Blanca/Roja",
+      "precio": 16.0,
+      "precio_distribuidor": "13",
+      "descripcion": "Luz dual de alta potencia para bicicleta o casco, con luz blanca al frente y roja atrás para ser visto desde cualquier ángulo.",
+      "especificaciones_raw": "Colores: Blanca (frontal) y roja (trasera); Uso: Manubrio o casco; Modos: 4 (fija fuerte/suave, intermitente rápido/lento); Batería: Litio recargable vía USB; Resistencia: IPX8 (lluvia); Instalación: Sin herramientas; Incluye: Luz dual, cable USB y soporte ajustable",
+      "especificaciones": {
+        "Colores": "Blanca (frontal) y roja (trasera)",
+        "Uso": "Manubrio o casco",
+        "Modos": "4 (fija fuerte/suave, intermitente rápido/lento)",
+        "Batería": "Litio recargable vía USB",
+        "Resistencia": "IPX8 (lluvia)",
+        "Instalación": "Sin herramientas",
+        "Incluye": "Luz dual, cable USB y soporte ajustable"
+      },
+      "fotos": [
+        "luz-dual-blancoroja-01.webp",
+        "luz-dual-blancoroja-02.webp",
+        "luz-dual-blancoroja-03.webp",
+        "luz-dual-blancoroja-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-GUA-001",
+      "categoria": "Guantes",
+      "subcategoria": "Adulto",
+      "nombre": "Guantes de Ciclismo",
+      "precio": 14.0,
+      "precio_distribuidor": "12",
+      "descripcion": "Guantes de ciclismo half-finger que equilibran protección, estilo y ventilación, ideales para MTB, ruta o uso urbano.",
+      "especificaciones_raw": "Diseño: Half-finger (medio dedo); Palma: Antideslizante con acolchado geométrico; Material: Tejido elástico transpirable; Cierre: Velcro reforzado en la muñeca; Retiro: Pestañas para quitarlos fácilmente; Tallas disponibles: S / M / L / XL",
+      "especificaciones": {
+        "Diseño": "Half-finger (medio dedo)",
+        "Palma": "Antideslizante con acolchado geométrico",
+        "Material": "Tejido elástico transpirable",
+        "Cierre": "Velcro reforzado en la muñeca",
+        "Retiro": "Pestañas para quitarlos fácilmente",
+        "Tallas disponibles": "S / M / L / XL"
+      },
+      "fotos": [
+        "guante-ciclismo-adulto-01.webp",
+        "guante-ciclismo-adulto-02.webp",
+        "guante-ciclismo-adulto-03.webp",
+        "guante-ciclismo-adulto-04.webp",
+        "guante-ciclismo-adulto-05.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-GUA-NINO-001",
+      "categoria": "Guantes",
+      "subcategoria": "Niños",
+      "nombre": "Guantes de Ciclismo para Niños Knightlaood",
+      "precio": 12.0,
+      "precio_distribuidor": "",
+      "descripcion": "Guantes de ciclismo infantiles que brindan seguridad y confort para que los niños exploren al aire libre con confianza.",
+      "especificaciones_raw": "Marca: Knightlaood; Palma: Antideslizante; Seguridad: Elementos reflectores; Material: Malla transpirable (Mesh); Diseño: Medio dedo; Tallas: S / M / L",
+      "especificaciones": {
+        "Marca": "Knightlaood",
+        "Palma": "Antideslizante",
+        "Seguridad": "Elementos reflectores",
+        "Material": "Malla transpirable (Mesh)",
+        "Diseño": "Medio dedo",
+        "Tallas": "S / M / L"
+      },
+      "fotos": [
+        "guante-nino-knightlaood-01.webp",
+        "guante-nino-knightlaood-02.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-PED-MTB-001",
+      "categoria": "Componentes",
+      "subcategoria": "Ciclismo",
+      "nombre": "Pedal Mixto MTB",
+      "precio": 37.0,
+      "precio_distribuidor": "30",
+      "descripcion": "Pedal mixto muy versátil, utilizable con zapatos de ciclismo o zapatos deportivos comunes; ideal para quienes inician con clips, ciclistas urbanos y rutas de montaña técnicas.",
+      "especificaciones_raw": "Tipo: Doble cara (bloqueo automático SPD de un lado, plataforma plana del otro); Peso: 298 g el par; Eje: Acero molibdeno; Cuerpo: Aleación de aluminio; Incluye: Calas (clips) y pernos",
+      "especificaciones": {
+        "Tipo": "Doble cara (bloqueo automático SPD de un lado, plataforma plana del otro)",
+        "Peso": "298 g el par",
+        "Eje": "Acero molibdeno",
+        "Cuerpo": "Aleación de aluminio",
+        "Incluye": "Calas (clips) y pernos"
+      },
+      "fotos": [
+        "pedal-mixto-mtb-01.webp",
+        "pedal-mixto-mtb-02.webp",
+        "pedal-mixto-mtb-03.webp",
+        "pedal-mixto-mtb-04.webp",
+        "pedal-mixto-mtb-05.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-MOCHDEL-001",
+      "categoria": "Bolsas",
+      "subcategoria": "Ciclismo",
+      "nombre": "Mochila Delantera para Bicicleta",
+      "precio": 25.0,
+      "precio_distribuidor": "20",
+      "descripcion": "Mochila que se instala en el cuadro delantero de la bicicleta para llevar tus cosas al alcance de la mano durante la ruta.",
+      "especificaciones_raw": "Sujeción: 3 puntos de anclaje (estabilidad total); Capacidad: Herramientas, celular, snacks y repuestos; Material: Alta resistencia con correas reforzadas; Acceso: Rápido, sin bajarte de la bici; Diseño: Aerodinámico",
+      "especificaciones": {
+        "Sujeción": "3 puntos de anclaje (estabilidad total)",
+        "Capacidad": "Herramientas, celular, snacks y repuestos",
+        "Material": "Alta resistencia con correas reforzadas",
+        "Acceso": "Rápido, sin bajarte de la bici",
+        "Diseño": "Aerodinámico"
+      },
+      "fotos": [
+        "mochila-delantera-bici-01.webp",
+        "mochila-delantera-bici-02.webp",
+        "mochila-delantera-bici-03.webp",
+        "mochila-delantera-bici-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-RINESC-001",
+      "categoria": "Bolsas",
+      "subcategoria": "Escalada",
+      "nombre": "Bolso/Riñonera para Escalada",
+      "precio": 25.0,
+      "precio_distribuidor": "21",
+      "descripcion": "Riñonera técnica de alta capacidad para optimizar tu equipo de escalada.",
+      "especificaciones_raw": "Capacidad: Zapatos de escalada, arnés compacto, magnesio y snacks; Ventilación: Orificios laterales; Acceso: Bolsillo frontal con malla técnica y cierres reforzados; Material: Alta durabilidad, resistente al roce con la roca; Uso: En la cintura o cruzada",
+      "especificaciones": {
+        "Capacidad": "Zapatos de escalada, arnés compacto, magnesio y snacks",
+        "Ventilación": "Orificios laterales",
+        "Acceso": "Bolsillo frontal con malla técnica y cierres reforzados",
+        "Material": "Alta durabilidad, resistente al roce con la roca",
+        "Uso": "En la cintura o cruzada"
+      },
+      "fotos": [
+        "rinonera-escalada-01.webp",
+        "rinonera-escalada-02.webp",
+        "rinonera-escalada-03.webp",
+        "rinonera-escalada-04.webp"
+      ],
+      "disciplinas": [
+        "Escalada",
+        "Gym"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-GYM-001",
+      "categoria": "Bolsas",
+      "subcategoria": "Gimnasio",
+      "nombre": "Bolsa Gym Magnética",
+      "precio": 20.0,
+      "precio_distribuidor": "18",
+      "descripcion": "Bolsa magnética que se adhiere a cualquier máquina o rack del gimnasio, para mantener tus pertenencias limpias y a la mano durante el entrenamiento.",
+      "especificaciones_raw": "Sujeción: Imán potente para superficies metálicas; Capacidad: Celular, llaves, audífonos y más; Bolsillo: Malla para ver notificaciones rápidamente",
+      "especificaciones": {
+        "Sujeción": "Imán potente para superficies metálicas",
+        "Capacidad": "Celular, llaves, audífonos y más",
+        "Bolsillo": "Malla para ver notificaciones rápidamente"
+      },
+      "fotos": [
+        "bolsa-gym-magnetica-01.webp",
+        "bolsa-gym-magnetica-02.webp"
+      ],
+      "disciplinas": [
+        "Gym"
+      ]
+    },
+    {
+      "codigo": "LEV-GOR-001",
+      "categoria": "Gorras",
+      "subcategoria": "Ciclismo",
+      "nombre": "Gorra de Ciclismo RockBross",
+      "precio": 18.0,
+      "precio_distribuidor": "",
+      "descripcion": "Gorra deportiva ligera y transpirable, diseñada para un ajuste perfecto bajo el casco o para uso durante las cicleadas, con protección solar y estilo.",
+      "especificaciones_raw": "Material: Transpirable; Ajuste: Bajo el casco o uso diario; Diseños: Varios modelos disponibles",
+      "especificaciones": {
+        "Material": "Transpirable",
+        "Ajuste": "Bajo el casco o uso diario",
+        "Diseños": "Varios modelos disponibles"
+      },
+      "fotos": [
+        "gorra-ciclismo-01.webp",
+        "gorra-ciclismo-02.webp",
+        "gorra-ciclismo-03.webp",
+        "gorra-ciclismo-04.webp"
+      ],
+      "disciplinas": [
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-AUD-LANG-TS19-001",
+      "categoria": "Audífonos",
+      "subcategoria": "Beige",
+      "nombre": "Audífonos Open-Ear Langsdom TS19",
+      "precio": 36.0,
+      "precio_distribuidor": "",
+      "descripcion": "Audífonos deportivos abiertos (open-ear) que van sobre la oreja sin tapar el oído, ideales para entrenar y escuchar tu entorno con total seguridad. Incluyen micrófono de voz clara para llamadas fluidas, ajuste ergonómico ligero y hasta 40 horas de batería total con su estuche.",
+      "especificaciones_raw": "Tipo: Abierto ergonómico (no entra al oído); Micrófono: Integrado y nítido para llamadas; Conexión: Bluetooth (hasta 10 metros); Batería total: Hasta 40 horas con estuche; Tiempo de carga: 1.5 a 2 horas aprox.; Puerto de carga: USB-C; Resistencia: Sudor y lluvia ligera",
+      "especificaciones": {
+        "Tipo": "Abierto ergonómico (no entra al oído)",
+        "Micrófono": "Integrado y nítido para llamadas",
+        "Conexión": "Bluetooth (hasta 10 metros)",
+        "Batería total": "Hasta 40 horas con estuche",
+        "Tiempo de carga": "1.5 a 2 horas aprox.",
+        "Puerto de carga": "USB-C",
+        "Resistencia": "Sudor y lluvia ligera"
+      },
+      "fotos": [
+        "audifono-ts19-beige-001.webp",
+        "audifono-ts19-beige-002.webp"
+      ],
+      "disciplinas": [
+        "Gym",
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-AUD-LANG-TS19-003",
+      "categoria": "Audífonos",
+      "subcategoria": "Negros",
+      "nombre": "Audífonos Open-Ear Langsdom TS19",
+      "precio": 36.0,
+      "precio_distribuidor": "",
+      "descripcion": "Audífonos deportivos abiertos (open-ear) que van sobre la oreja sin tapar el oído, ideales para entrenar y escuchar tu entorno con total seguridad. Incluyen micrófono de voz clara para llamadas fluidas, ajuste ergonómico ligero y hasta 40 horas de batería total con su estuche.",
+      "especificaciones_raw": "Tipo: Abierto ergonómico (no entra al oído); Micrófono: Integrado y nítido para llamadas; Conexión: Bluetooth (hasta 10 metros); Batería total: Hasta 40 horas con estuche; Tiempo de carga: 1.5 a 2 horas aprox.; Puerto de carga: USB-C; Resistencia: Sudor y lluvia ligera",
+      "especificaciones": {
+        "Tipo": "Abierto ergonómico (no entra al oído)",
+        "Micrófono": "Integrado y nítido para llamadas",
+        "Conexión": "Bluetooth (hasta 10 metros)",
+        "Batería total": "Hasta 40 horas con estuche",
+        "Tiempo de carga": "1.5 a 2 horas aprox.",
+        "Puerto de carga": "USB-C",
+        "Resistencia": "Sudor y lluvia ligera"
+      },
+      "fotos": [
+        "audifono-ts19-negro-001.webp",
+        "audifono-ts19-negro-002.webp",
+        "audifono-ts19-negro-003.webp",
+        "audifono-ts19-negro-004.webp"
+      ],
+      "disciplinas": [
+        "Gym",
+        "Ciclismo"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-ESC-001",
+      "categoria": "Bolsas",
+      "subcategoria": "Azul",
+      "nombre": "Bolso de Magnesio Luckstone",
+      "precio": 20.0,
+      "precio_distribuidor": "",
+      "descripcion": "Bolsa de magnesio práctica y resistente para escalada y gimnasio. Viene con cordón ajustable con seguro para que no se riegue el magnesio, dos bolsillos con cierre (frontal y lateral) ideales para guardar el celular o las llaves, correa para la cintura y agarraderas elásticas para sujetar cepillos o enganchar mosquetones",
+      "especificaciones_raw": "Sistema de cierre: Cordón ajustable con seguro antiderrame; Bolsillos: 1 frontal y 1 lateral con cierre (entra el celular); Ajuste: Correa a la cintura con broche regulable; Agarraderas extras: Elásticos laterales para cepillo de escalada o mosquetón; Material: Tela impermeable y resistente al raspón",
+      "especificaciones": {
+        "Sistema de cierre": "Cordón ajustable con seguro antiderrame",
+        "Bolsillos": "1 frontal y 1 lateral con cierre (entra el celular)",
+        "Ajuste": "Correa a la cintura con broche regulable",
+        "Agarraderas extras": "Elásticos laterales para cepillo de escalada o mosquetón",
+        "Material": "Tela impermeable y resistente al raspón"
+      },
+      "fotos": [
+        "bolsa-magnesio-azul-001.webp",
+        "bolsa-magnesio-azul-002.webp"
+      ],
+      "disciplinas": [
+        "Escalada",
+        "Gym"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-ESC-002",
+      "categoria": "Bolsas",
+      "subcategoria": "Amarillo",
+      "nombre": "Bolso de Magnesio Luckstone",
+      "precio": 20.0,
+      "precio_distribuidor": "",
+      "descripcion": "Bolsa de magnesio práctica y resistente para escalada y gimnasio. Viene con cordón ajustable con seguro para que no se riegue el magnesio, dos bolsillos con cierre (frontal y lateral) ideales para guardar el celular o las llaves, correa para la cintura y agarraderas elásticas para sujetar cepillos o enganchar mosquetones",
+      "especificaciones_raw": "Sistema de cierre: Cordón ajustable con seguro antiderrame; Bolsillos: 1 frontal y 1 lateral con cierre (entra el celular); Ajuste: Correa a la cintura con broche regulable; Agarraderas extras: Elásticos laterales para cepillo de escalada o mosquetón; Material: Tela impermeable y resistente al raspón",
+      "especificaciones": {
+        "Sistema de cierre": "Cordón ajustable con seguro antiderrame",
+        "Bolsillos": "1 frontal y 1 lateral con cierre (entra el celular)",
+        "Ajuste": "Correa a la cintura con broche regulable",
+        "Agarraderas extras": "Elásticos laterales para cepillo de escalada o mosquetón",
+        "Material": "Tela impermeable y resistente al raspón"
+      },
+      "fotos": [
+        "bolsa-magnesio-amarillo-001.webp",
+        "bolsa-magnesio-amarillo-002.webp"
+      ],
+      "disciplinas": [
+        "Escalada",
+        "Gym"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-ESC-003",
+      "categoria": "Bolsas",
+      "subcategoria": "Verde",
+      "nombre": "Bolso de Magnesio Luckstone",
+      "precio": 20.0,
+      "precio_distribuidor": "",
+      "descripcion": "Bolsa de magnesio práctica y resistente para escalada y gimnasio. Viene con cordón ajustable con seguro para que no se riegue el magnesio, dos bolsillos con cierre (frontal y lateral) ideales para guardar el celular o las llaves, correa para la cintura y agarraderas elásticas para sujetar cepillos o enganchar mosquetones",
+      "especificaciones_raw": "Sistema de cierre: Cordón ajustable con seguro antiderrame; Bolsillos: 1 frontal y 1 lateral con cierre (entra el celular); Ajuste: Correa a la cintura con broche regulable; Agarraderas extras: Elásticos laterales para cepillo de escalada o mosquetón; Material: Tela impermeable y resistente al raspón",
+      "especificaciones": {
+        "Sistema de cierre": "Cordón ajustable con seguro antiderrame",
+        "Bolsillos": "1 frontal y 1 lateral con cierre (entra el celular)",
+        "Ajuste": "Correa a la cintura con broche regulable",
+        "Agarraderas extras": "Elásticos laterales para cepillo de escalada o mosquetón",
+        "Material": "Tela impermeable y resistente al raspón"
+      },
+      "fotos": [
+        "bolsa-magnesio-verde-001.webp",
+        "bolsa-magnesio-verde-002.webp"
+      ],
+      "disciplinas": [
+        "Escalada",
+        "Gym"
+      ]
+    },
+    {
+      "codigo": "LEV-BOL-ESC-004",
+      "categoria": "Bolsas",
+      "subcategoria": "Negro",
+      "nombre": "Bolso de Magnesio Luckstone",
+      "precio": 20.0,
+      "precio_distribuidor": "",
+      "descripcion": "Bolsa de magnesio práctica y resistente para escalada y gimnasio. Viene con cordón ajustable con seguro para que no se riegue el magnesio, dos bolsillos con cierre (frontal y lateral) ideales para guardar el celular o las llaves, correa para la cintura y agarraderas elásticas para sujetar cepillos o enganchar mosquetones",
+      "especificaciones_raw": "Sistema de cierre: Cordón ajustable con seguro antiderrame; Bolsillos: 1 frontal y 1 lateral con cierre (entra el celular); Ajuste: Correa a la cintura con broche regulable; Agarraderas extras: Elásticos laterales para cepillo de escalada o mosquetón; Material: Tela impermeable y resistente al raspón",
+      "especificaciones": {
+        "Sistema de cierre": "Cordón ajustable con seguro antiderrame",
+        "Bolsillos": "1 frontal y 1 lateral con cierre (entra el celular)",
+        "Ajuste": "Correa a la cintura con broche regulable",
+        "Agarraderas extras": "Elásticos laterales para cepillo de escalada o mosquetón",
+        "Material": "Tela impermeable y resistente al raspón"
+      },
+      "fotos": [
+        "bolsa-magnesio-negro-001.webp",
+        "bolsa-magnesio-negro-002.webp"
+      ],
+      "disciplinas": [
+        "Escalada",
+        "Gym"
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": "vid-luz-1000",
+      "titulo": "Luz Delantera 1000 Lúmenes en Acción",
+      "subtitulo": "Demostración de potencia y visibilidad en ruta nocturna",
+      "archivo": "Luz delantera 1000L.mp4",
+      "producto_ref": "LEV-LUZ-1000-001",
+      "producto_nombre": "Luz Delantera 1000 Lúmenes",
+      "categoria": "Iluminación",
+      "disciplina": "Ciclismo",
+      "badge": "⚡ DEMOSTRACIÓN EN RUTA"
+    }
+  ]
+}
