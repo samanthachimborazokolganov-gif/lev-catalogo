@@ -591,10 +591,11 @@
     return `
       <article class="product-card" data-code="${prod.codigo}" data-category="${prod.categoria}" data-discipline="${prod.disciplina || 'todos'}">
         <div class="product-carousel" data-card-id="${cardId}">
-          <div class="carousel-badges">
-            ${hasVideo ? `<span class="badge-video">🎬 Video</span>` : ''}
-            ${prod.subcategoria ? `<span class="badge-variant">${prod.subcategoria}</span>` : ''}
-          </div>
+          ${hasVideo ? `
+            <div class="carousel-badges">
+              <span class="badge-video">🎬 Video</span>
+            </div>
+          ` : ''}
 
           <div class="carousel-track">
             ${slidesHtml}
@@ -894,12 +895,11 @@
         </div>
 
         <div class="modal-details">
-          <div class="modal-header-tag">${prod.categoria.toUpperCase()} ${prod.subcategoria ? `&bull; ${prod.subcategoria}` : ''}</div>
+          <div class="modal-header-tag">${prod.categoria.toUpperCase()}</div>
           <h2 class="modal-title">${prod.nombre}</h2>
           <div style="display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap;">
             <span class="badge-brand">${detectBrand(prod)}</span>
             ${hasVideo ? `<span class="badge-video">🎬 Video en Acción</span>` : ''}
-            ${prod.subcategoria ? `<span class="badge-variant">${prod.subcategoria}</span>` : ''}
           </div>
 
           <p class="modal-description">${prod.descripcion || 'Equipamiento deportivo de élite LEV Wild Spirit diseñado para superar los límites del rendimiento.'}</p>
