@@ -1,11 +1,11 @@
 /**
- * LEV WILD SPIRIT - MOTOR DE CATÁLOGO DINÁMICO v2.2
- * - Soporte para subpáginas estáticas (/cascos/, /guantes/, etc.) y Deep Linking (#cascos, #guantes, etc.)
- * - URLs 100% limpias bajo el dominio oficial https://levwild.com/
- * - Selector interactivo de variantes de diseño y color en tarjeta y modal con sincronización en tiempo real
- * - Mensajes de WhatsApp predeterminados exactos con Nombre, Referencia, Color/Variante y Precio
+ * LEV WILD SPIRIT - MOTOR DE CATÁLOGO DINÁMICO v3.0
+ * - URLs 100% LIMPIAS SIN HASHTAGS (#) PARA SEO (ej: https://levwild.com/cascos/, https://levwild.com/guantes/)
+ * - Subpáginas estáticas dedicadas por categoría con Metatags Open Graph y Twitter Cards
+ * - Sincronización en tiempo real de variantes de diseño y color en tarjeta y modal
+ * - Mensajes de WhatsApp predeterminados exactos con Nombre, Código, Variante y Precio USD
  * - Showcase cinemático de videos demostrativos en ruta
- * - Zoom interactivo estilo Amazon con lupa de hover y Lightbox HD fullscreen
+ * - Zoom interactivo HD con lupa y Lightbox fullscreen
  */
 
 (function () {
@@ -134,7 +134,7 @@
     renderCategoryPills();
     renderNavigationLinks();
     
-    // Verificar si hay deep link en la URL (categoría o producto)
+    // Verificar deep links (limpios sin hashtags)
     checkDeepLink();
     renderCatalog();
     setupScrollAnimations();
@@ -217,9 +217,9 @@
             <p class="video-desc-cinematic">${vid.subtitulo || 'Comprobación de rendimiento, resistencia y visibilidad en ruta real.'}</p>
             
             <div class="video-actions-cinematic">
-              <a href="#producto-${slugify(vid.producto_ref)}" class="btn-video-product" data-ref="${vid.producto_ref}">
+              <button class="btn-video-product" data-ref="${vid.producto_ref}">
                 <span>Ver Ficha del Producto</span> &rarr;
-              </a>
+              </button>
               <a href="${vidWaUrl}" target="_blank" rel="noopener noreferrer" class="btn-video-whatsapp">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.503-5.727-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 1.966 14.12 .94 11.503.94c-5.44 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.181l-.959 3.501 3.616-.948l.307.182zm11.391-7.795c-.328-.162-1.94-.949-2.24-.1.057-.301-.15-.406-.328-.488-.3-.136-.527-.243-.728-.544-.2-.301-.2-.581-.1-.861.1-.281.428-.681.628-.881.2-.201.272-.281.399-.481.129-.2.057-.381-.043-.581-.1-.2-.828-1.971-1.128-2.693-.3-.721-.586-.622-.8-.632l-.685-.01c-.243 0-.643.09-.971.451-.328.361-1.257 1.213-1.257 2.946 0 1.733 1.271 3.407 1.443 3.637.171.23 2.5 3.778 6.057 5.283.846.357 1.506.57 2.02.729.85.267 1.624.23 2.235.14.68-.101 2.086-.842 2.371-1.663.286-.822.286-1.523.2-1.663-.085-.141-.314-.221-.643-.382z"/>
@@ -247,8 +247,29 @@
   }
 
   // ==========================================================================
-  // 4. RENDERIZADO DE PASTILLAS Y NAVEGACIÓN
+  // 4. RENDERIZADO DE PASTILLAS Y NAVEGACIÓN (URLs LIMPIAS SIN HASHTAGS)
   // ==========================================================================
+  function getCategoryPath(catName, subcat = 'todos') {
+    const cName = (catName || '').toLowerCase();
+    if (cName === 'todos' || !cName) return '/';
+    if (cName.includes('casco')) return '/cascos/';
+    if (cName.includes('guante')) return '/guantes/';
+    if (cName.includes('iluminac') || cName.includes('luz') || cName.includes('luces')) {
+      if (subcat === 'delantera') return '/luces-delanteras/';
+      if (subcat === 'trasera') return '/luces-traseras/';
+      return '/luces-delanteras/';
+    }
+    if (cName.includes('audifono')) return '/audifonos/';
+    if (cName.includes('gafa')) return '/gafas/';
+    if (cName.includes('bolsa')) return '/bolsas/';
+    if (cName.includes('gorra')) return '/gorras/';
+    if (cName.includes('componente') || cName.includes('pedal')) return '/componentes/';
+
+    const catObj = state.categories.find(c => c.nombre.toLowerCase() === cName);
+    const slug = catObj ? (catObj.slug || slugify(catObj.nombre)) : slugify(catName);
+    return `/${slug}/`;
+  }
+
   function renderCategoryPills() {
     if (!DOM.categoryPillsContainer) return;
 
@@ -256,21 +277,22 @@
     const totalCount = filteredByDiscipline.length;
 
     let html = `
-      <button class="cat-pill ${state.activeCategory === 'todos' ? 'active' : ''}" data-cat="todos">
+      <a href="/" class="cat-pill ${state.activeCategory === 'todos' ? 'active' : ''}" data-cat="todos">
         <span>⚡ Todos</span>
         <span class="count">${totalCount}</span>
-      </button>
+      </a>
     `;
 
     state.categories.forEach(cat => {
       const catCount = filteredByDiscipline.filter(p => p.categoria.toLowerCase() === cat.nombre.toLowerCase()).length;
       if (catCount > 0 || state.activeDiscipline === 'todos') {
         const isCatActive = state.activeCategory.toLowerCase() === cat.nombre.toLowerCase();
+        const path = getCategoryPath(cat.nombre, 'todos');
         html += `
-          <button class="cat-pill ${isCatActive ? 'active' : ''}" data-cat="${cat.nombre}" data-slug="${cat.slug || slugify(cat.nombre)}">
+          <a href="${path}" class="cat-pill ${isCatActive ? 'active' : ''}" data-cat="${cat.nombre}" data-slug="${cat.slug || slugify(cat.nombre)}">
             <span>${cat.icono || '🏷️'} ${cat.nombre}</span>
             <span class="count">${catCount}</span>
-          </button>
+          </a>
         `;
       }
     });
@@ -278,24 +300,10 @@
     DOM.categoryPillsContainer.innerHTML = html;
 
     DOM.categoryPillsContainer.querySelectorAll('.cat-pill').forEach(pill => {
-      pill.addEventListener('click', () => {
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
         const cat = pill.dataset.cat;
-        state.activeCategory = cat;
-        state.activeSubcategory = 'todos';
-        
-        if (cat === 'todos') {
-          history.pushState(null, '', window.location.pathname);
-          updateProductMeta(null);
-        } else {
-          const catObj = state.categories.find(c => c.nombre.toLowerCase() === cat.toLowerCase());
-          const slug = catObj ? (catObj.slug || slugify(catObj.nombre)) : slugify(cat);
-          history.pushState({ category: cat }, '', `#${slug}`);
-          updateCategoryMeta(cat, 'todos');
-        }
-
-        renderCategoryPills();
-        renderCatalog();
-        scrollToSection('filterBar');
+        activateCategory(cat, 'todos', true);
       });
     });
   }
@@ -304,10 +312,10 @@
     if (DOM.footerCategoriesList) {
       let footerCatsHtml = '';
       state.categories.forEach(cat => {
-        const slug = cat.slug || slugify(cat.nombre);
+        const path = getCategoryPath(cat.nombre, 'todos');
         footerCatsHtml += `
           <li>
-            <a href="#${slug}" data-cat-link="${cat.nombre}">
+            <a href="${path}" data-cat-link="${cat.nombre}">
               ${cat.icono || '🏷️'} ${cat.nombre}
             </a>
           </li>
@@ -320,7 +328,7 @@
           e.preventDefault();
           const cat = link.dataset.catLink;
           if (cat) {
-            activateCategory(cat, 'todos');
+            activateCategory(cat, 'todos', true);
           }
         });
       });
@@ -329,10 +337,10 @@
     if (DOM.mobileCategoriesList) {
       let mobileCatsHtml = '';
       state.categories.forEach(cat => {
-        const slug = cat.slug || slugify(cat.nombre);
+        const path = getCategoryPath(cat.nombre, 'todos');
         mobileCatsHtml += `
           <li>
-            <a href="#${slug}" class="drawer-cat-link" data-cat="${cat.nombre}">
+            <a href="${path}" class="drawer-cat-link" data-cat="${cat.nombre}">
               <span>${cat.icono || '🏷️'} ${cat.nombre}</span>
               <span class="arrow">&rarr;</span>
             </a>
@@ -347,7 +355,7 @@
           const cat = link.dataset.cat;
           DOM.mobileDrawer.classList.remove('open');
           DOM.mobileMenuToggle.classList.remove('open');
-          activateCategory(cat, 'todos');
+          activateCategory(cat, 'todos', true);
         });
       });
     }
@@ -356,9 +364,10 @@
     document.querySelectorAll('#heroCategoryQuickBar a, .hero-quick-tag').forEach(tag => {
       tag.addEventListener('click', (e) => {
         e.preventDefault();
+        const catAttr = tag.dataset.cat || '';
         const href = tag.getAttribute('href') || '';
-        const target = href.replace('#', '');
-        handleCategoryHash(target);
+        const cleanPath = catAttr || href.replace(/^\//, '').replace(/\/$/, '').replace('#', '');
+        handleCategoryRoute(cleanPath);
       });
     });
   }
@@ -448,173 +457,149 @@
 
   function getCategorySubfilters(catName, products) {
     const list = [{ id: 'todos', label: '⚡ Todos los Modelos' }];
-    const cLower = catName.toLowerCase();
+    const catLower = catName.toLowerCase();
 
-    if (cLower.includes('iluminac')) {
-      return [
-        { id: 'todos', label: '⚡ Toda la Iluminación' },
-        { id: 'delantera', label: '🔦 Luces Delanteras' },
-        { id: 'trasera', label: '🚨 Luces Traseras' },
-        { id: 'dual', label: '🔄 Luz Dual (Blanca/Roja)' }
-      ];
+    if (catLower.includes('iluminac')) {
+      list.push({ id: 'delantera', label: '🔦 Delanteras (1000/1300 lm)' });
+      list.push({ id: 'trasera', label: '🚨 Traseras con Sensor de Freno' });
+      return list;
     }
 
-    if (cLower.includes('casco')) {
-      return [
-        { id: 'todos', label: '⚡ Todos los Cascos' },
-        { id: '12h15', label: 'Promend 12H15 (con luz LED)' },
-        { id: '12h22n', label: 'Promend 12H22N' },
-        { id: '12h09', label: 'Promend 12H09' },
-        { id: '11h01', label: 'Bike Boy 11H01' }
-      ];
+    if (catLower.includes('casco')) {
+      const distinctModels = [];
+      products.forEach(p => {
+        const baseName = getProductFamilyName(p.nombre);
+        if (baseName && !distinctModels.includes(baseName)) {
+          distinctModels.push(baseName);
+        }
+      });
+      if (distinctModels.length > 1) {
+        distinctModels.forEach(m => {
+          list.push({ id: slugify(m), label: m });
+        });
+      }
+      return list;
     }
 
-    if (cLower.includes('bolsa')) {
-      return [
-        { id: 'todos', label: '⚡ Todas las Bolsas' },
-        { id: 'magnesio', label: '🧗 Magnesio (Escalada)' },
-        { id: 'gym', label: '💪 Gym Magnética' },
-        { id: 'ciclismo', label: '🚴 Mochila Bici' }
-      ];
-    }
-
-    if (cLower.includes('audífon') || cLower.includes('audifon')) {
-      return [
-        { id: 'todos', label: '⚡ Todos los Audífonos' },
-        { id: 'ts19', label: 'Langsdom TS19 (Open-Ear)' },
-        { id: 'openair', label: 'OpenAir Duet' },
-        { id: 'h12', label: 'Deportivos H12' }
-      ];
-    }
-
-    if (cLower.includes('guante')) {
-      return [
-        { id: 'todos', label: '⚡ Todos los Guantes' },
-        { id: 'adulto', label: 'Adultos' },
-        { id: 'nino', label: 'Niños (Knightlaood)' }
-      ];
-    }
-
-    if (cLower.includes('gafa')) {
-      return [
-        { id: 'todos', label: '⚡ Todas las Gafas' },
-        { id: '10h1', label: 'ROCKBROS 10H1' },
-        { id: '10h2', label: 'ROCKBROS 10H2 (4 visores)' }
-      ];
+    if (catLower.includes('guante')) {
+      list.push({ id: 'adulto', label: '🧑 Adultos' });
+      list.push({ id: 'niño', label: '🧒 Niños' });
+      return list;
     }
 
     return list;
   }
 
-  function getSiblingVariants(prod) {
-    const baseName = prod.nombre.trim().toLowerCase();
-    return state.products.filter(p => p.nombre.trim().toLowerCase() === baseName && p.categoria === prod.categoria);
-  }
-
   function renderProductCard(prod) {
-    const cardId = `prod-${slugify(prod.codigo)}`;
     const photos = prod.fotos && prod.fotos.length > 0 ? prod.fotos : [];
+    const hasMultipleMedia = photos.length > 1 || !!prod.video;
     const hasVideo = !!prod.video;
-    const totalMediaCount = photos.length + (hasVideo ? 1 : 0);
-    const hasMultipleMedia = totalMediaCount > 1;
-    
-    // Variantes de color del mismo modelo
+    const cardId = `card-${slugify(prod.codigo)}`;
+
+    // Carrusel de imágenes
+    let slidesHtml = '';
+    photos.forEach((photo, idx) => {
+      slidesHtml += `
+        <div class="carousel-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+          <img src="${CONFIG.imagesPath}${photo}" 
+               alt="${prod.nombre} - ${prod.subcategoria || ''}" 
+               loading="lazy"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span><span class=\'placeholder-code\'>${prod.codigo}</span></div>';">
+        </div>
+      `;
+    });
+
+    if (hasVideo) {
+      slidesHtml += `
+        <div class="carousel-slide slide-video" data-index="${photos.length}">
+          <video class="card-carousel-video" muted loop playsinline preload="none">
+            <source src="${CONFIG.imagesPath}${prod.video}" type="video/mp4">
+          </video>
+          <div class="video-play-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+      `;
+    }
+
+    if (photos.length === 0 && !hasVideo) {
+      slidesHtml = `
+        <div class="carousel-slide active">
+          <div class="photo-placeholder">
+            <span class="placeholder-icon">${getCategoryEmoji(prod.categoria)}</span>
+            <span class="placeholder-code">${prod.codigo}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // Puntos indicadores
+    let dotsHtml = '';
+    const totalSlides = photos.length + (hasVideo ? 1 : 0);
+    if (totalSlides > 1) {
+      for (let i = 0; i < totalSlides; i++) {
+        dotsHtml += `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`;
+      }
+    }
+
+    // Selector interactivo de variantes
     const siblings = getSiblingVariants(prod);
-    const hasVariants = siblings.length > 1;
+    let variantsRowHtml = '';
+    if (siblings.length > 1) {
+      variantsRowHtml = `
+        <div class="card-variants-row" title="Seleccionar color o variante">
+          <span class="variants-row-label">Color / Modelo:</span>
+          <div class="variants-pills-list">
+            ${siblings.map(sib => {
+              const isActive = sib.codigo === prod.codigo;
+              const colorDot = getVariantColorHex(sib.subcategoria || sib.nombre);
+              return `
+                <button class="variant-pill-btn ${isActive ? 'active' : ''}" 
+                        data-code="${sib.codigo}" 
+                        title="${sib.subcategoria || sib.nombre}">
+                  ${colorDot ? `<span class="variant-color-dot" style="background: ${colorDot};"></span>` : ''}
+                  <span class="variant-name">${sib.subcategoria || sib.nombre}</span>
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
 
-    // Enlace de WhatsApp exacto
-    const waUrl = getProductWhatsAppUrl(prod);
-
-    const priceFormatted = formatPriceText(prod.precio);
-    const priceDisplay = priceFormatted 
-      ? `<span class="price-value">${priceFormatted}</span>`
-      : `<span class="price-pending">[Consultar PVP]</span>`;
-
+    // Especificaciones
     let specsHtml = '';
     if (prod.especificaciones && Object.keys(prod.especificaciones).length > 0) {
-      const specEntries = Object.entries(prod.especificaciones).slice(0, 3);
+      const specKeys = Object.keys(prod.especificaciones).slice(0, 3);
       specsHtml = `
-        <div class="card-specs">
-          ${specEntries.map(([k, v]) => `
-            <div class="spec-row">
-              <span class="spec-key">${k}:</span>
-              <span class="spec-val">${v}</span>
+        <div class="card-specs-grid">
+          ${specKeys.map(k => `
+            <div class="spec-pill">
+              <span class="spec-name">${k}:</span>
+              <span class="spec-val">${prod.especificaciones[k]}</span>
             </div>
           `).join('')}
         </div>
       `;
     }
 
-    let variantsRowHtml = '';
-    if (hasVariants) {
-      variantsRowHtml = `
-        <div class="card-variants-row">
-          <span class="card-variants-title">🎨 Colores:</span>
-          ${siblings.map(sib => `
-            <button class="card-variant-pill ${sib.codigo === prod.codigo ? 'active' : ''}" 
-                    data-code="${sib.codigo}" 
-                    title="Ver variante en ${sib.subcategoria || sib.nombre}">
-              <span>${sib.subcategoria || 'Color'}</span>
-            </button>
-          `).join('')}
-        </div>
-      `;
-    }
+    const priceFormatted = formatPriceText(prod.precio);
+    const priceDisplay = priceFormatted 
+      ? `<span class="price-value">${priceFormatted}</span>` 
+      : `<span class="price-pending">[Consultar PVP]</span>`;
 
-    let slidesHtml = '';
-    if (photos.length > 0) {
-      slidesHtml += photos.map((photo, idx) => `
-        <div class="carousel-slide" data-index="${idx}">
-          <img src="${CONFIG.imagesPath}${photo}" 
-               alt="${prod.nombre} - ${prod.subcategoria || ''}" 
-               class="carousel-img"
-               loading="lazy"
-               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span><span class=\'placeholder-code\'>${prod.codigo}</span><span class=\'placeholder-label\'>${prod.nombre}</span></div>';">
-        </div>
-      `).join('');
-    } else {
-      slidesHtml += `
-        <div class="carousel-slide" data-index="0">
-          <div class="photo-placeholder">
-            <span class="placeholder-icon">${getCategoryEmoji(prod.categoria)}</span>
-            <span class="placeholder-code">${prod.codigo}</span>
-            <span class="placeholder-label">${prod.nombre}</span>
-          </div>
-        </div>
-      `;
-    }
-
-    if (hasVideo) {
-      slidesHtml += `
-        <div class="carousel-slide video-slide" data-index="${photos.length}">
-          <video class="carousel-video-player" playsinline preload="metadata" controls poster="${photos.length > 0 ? CONFIG.imagesPath + photos[0] : ''}">
-            <source src="${CONFIG.imagesPath}${prod.video}" type="video/mp4">
-          </video>
-          <div class="video-slide-badge">▶ Video Demostración</div>
-        </div>
-      `;
-    }
-
-    let dotsHtml = '';
-    if (hasMultipleMedia) {
-      for (let i = 0; i < totalMediaCount; i++) {
-        const isVideoDot = hasVideo && i === totalMediaCount - 1;
-        dotsHtml += `<span class="carousel-dot ${i === 0 ? 'active' : ''} ${isVideoDot ? 'video-dot' : ''}" data-index="${i}" title="${isVideoDot ? 'Video' : `Foto ${i+1}`}"></span>`;
-      }
-    }
+    const waUrl = getProductWhatsAppUrl(prod);
 
     return `
-      <article class="product-card" id="${cardId}" data-code="${prod.codigo}">
-        <div class="card-badges">
-          <span class="badge-code">${prod.codigo}</span>
-          <div style="display: flex; gap: 6px; align-items: center;">
-            ${hasVideo ? `<button class="badge-video" data-action="open-video" title="Ver video de demostración">▶ VIDEO</button>` : ''}
+      <article class="product-card" data-code="${prod.codigo}" data-category="${prod.categoria}" data-discipline="${prod.disciplina || 'todos'}">
+        <div class="product-carousel" data-card-id="${cardId}">
+          <div class="carousel-badges">
+            <span class="badge-code">REF: ${prod.codigo}</span>
+            ${hasVideo ? `<span class="badge-video">🎬 Video</span>` : ''}
             ${prod.subcategoria ? `<span class="badge-variant">${prod.subcategoria}</span>` : ''}
           </div>
-        </div>
 
-        <div class="product-carousel" data-card-id="${cardId}">
-          <div class="carousel-track" style="transform: translateX(0%);">
+          <div class="carousel-track">
             ${slidesHtml}
           </div>
 
@@ -687,24 +672,6 @@
     });
   }
 
-  function showToast(message) {
-    let toast = DOM.toastNotification || document.getElementById('toastNotification');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'toastNotification';
-      toast.className = 'toast-notification';
-      document.body.appendChild(toast);
-      DOM.toastNotification = toast;
-    }
-
-    toast.innerHTML = message;
-    toast.classList.add('show');
-    clearTimeout(toast._timeout);
-    toast._timeout = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3200);
-  }
-
   function attachProductCardEvents() {
     document.querySelectorAll('.product-carousel').forEach(carouselEl => {
       const cardId = carouselEl.dataset.cardId;
@@ -752,6 +719,7 @@
           updateSlide(state.carousels[cardId].currentIndex - 1);
         };
       }
+
       if (nextBtn) {
         nextBtn.onclick = (e) => {
           e.stopPropagation();
@@ -759,9 +727,10 @@
         };
       }
 
-      dots.forEach((dot, idx) => {
+      dots.forEach(dot => {
         dot.onclick = (e) => {
           e.stopPropagation();
+          const idx = parseInt(dot.dataset.index, 10);
           updateSlide(idx);
         };
       });
@@ -773,29 +742,15 @@
         };
       }
 
+      // Click en la foto de la tarjeta abre el modal
       carouselEl.onclick = (e) => {
-        if (!e.target.closest('.carousel-btn') && !e.target.closest('.carousel-dot') && !e.target.closest('video') && prod) {
-          openProductModal(prod, 'image', true);
-        }
+        if (e.target.closest('.carousel-btn') || e.target.closest('.carousel-dot') || e.target.closest('.card-zoom-btn')) return;
+        if (prod) openProductModal(prod, 'image', true);
       };
-
-      let touchStartX = 0;
-      let touchEndX = 0;
-      carouselEl.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-      carouselEl.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40) {
-          if (diff > 0) updateSlide(state.carousels[cardId].currentIndex + 1);
-          else updateSlide(state.carousels[cardId].currentIndex - 1);
-        }
-      }, { passive: true });
     });
 
-    // Cambio interactivo de variante en la tarjeta
-    document.querySelectorAll('.card-variant-pill').forEach(pill => {
+    // Cambiar variante directamente en la tarjeta
+    document.querySelectorAll('.variant-pill-btn').forEach(pill => {
       pill.addEventListener('click', (e) => {
         e.stopPropagation();
         const code = pill.dataset.code;
@@ -948,24 +903,18 @@
           <div style="display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap;">
             <span class="badge-code">REF: ${prod.codigo}</span>
             ${hasVideo ? `<span class="badge-video">🎬 Video en Acción</span>` : ''}
+            <span class="badge-brand">${detectBrand(prod)}</span>
           </div>
-          
-          <p class="modal-desc">${prod.descripcion || 'Equipamiento de alto rendimiento LEV Wild Spirit.'}</p>
+
+          <p class="modal-description">${prod.descripcion || 'Equipamiento deportivo de élite LEV Wild Spirit diseñado para superar los límites del rendimiento.'}</p>
 
           ${modalVariantsHtml}
 
-          ${hasVideo ? `
-            <div class="modal-video-callout">
-              <span style="font-size: 1.2rem;">🎬</span>
-              <span><strong>Demostración en video:</strong> Comprobación de visibilidad y resistencia en ruta real.</span>
-            </div>
-          ` : ''}
-
           ${specsTableHtml}
 
-          <div class="modal-price-area">
-            <div class="price-row">
-              <span class="price-label">PRECIO DE VENTA AL PÚBLICO</span>
+          <div class="modal-purchase-footer">
+            <div class="modal-price-box">
+              <span class="price-label">PRECIO AL PÚBLICO</span>
               ${priceFormatted 
                 ? `<span class="price-value">${priceFormatted}</span>` 
                 : `<span class="price-pending">[Consultar PVP]</span>`
@@ -990,10 +939,9 @@
 
     const productSlug = slugify(prod.codigo);
     if (pushHistory) {
-      const targetHash = `#producto-${productSlug}`;
-      if (window.location.hash !== targetHash) {
-        history.pushState({ productCode: prod.codigo, slug: productSlug }, '', targetHash);
-      }
+      const currentPath = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
+      const targetUrl = `${currentPath}?p=${productSlug}`;
+      history.pushState({ productCode: prod.codigo, slug: productSlug }, '', targetUrl);
     }
 
     updateProductMeta(prod);
@@ -1044,25 +992,26 @@
       thumb.addEventListener('click', () => {
         DOM.modalBody.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
         thumb.classList.add('active');
-        
-        if (thumb.dataset.type === 'video') {
-          mediaBox.classList.add('has-video');
+
+        const type = thumb.dataset.type;
+        if (type === 'video') {
+          const videoSrc = thumb.dataset.videoSrc;
+          mediaBox.className = 'modal-main-img-box has-video';
           mediaBox.onmousemove = null;
           mediaBox.onmouseleave = null;
           mediaBox.onclick = null;
           mediaBox.innerHTML = `
             <video class="modal-main-video" controls autoplay playsinline id="modalMainVideo">
-              <source src="${thumb.dataset.videoSrc}" type="video/mp4">
+              <source src="${videoSrc}" type="video/mp4">
               Tu navegador no soporta reproducción de video.
             </video>
           `;
         } else {
+          const src = thumb.dataset.src;
           currentPhotoIdx = parseInt(thumb.dataset.index, 10) || 0;
+          mediaBox.className = 'modal-main-img-box';
           mediaBox.innerHTML = `
-            <img src="${thumb.dataset.src}" 
-                 id="modalMainImg" 
-                 alt="${prod.nombre}"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span><span class=\'placeholder-code\'>${prod.codigo}</span></div>';">
+            <img src="${src}" id="modalMainImg" alt="${prod.nombre}">
             <div class="modal-zoom-hint">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
               <span>Pasa el cursor para zoom &bull; Clic para ver gigante</span>
@@ -1084,14 +1033,12 @@
     const modalVid = DOM.productModal.querySelector('video');
     if (modalVid) modalVid.pause();
 
-    if (updateHistory && window.location.hash.startsWith('#producto-')) {
+    if (updateHistory) {
+      let targetPath = '/';
       if (state.activeCategory !== 'todos') {
-        const catObj = state.categories.find(c => c.nombre.toLowerCase() === state.activeCategory.toLowerCase());
-        const slug = catObj ? (catObj.slug || slugify(catObj.nombre)) : slugify(state.activeCategory);
-        history.pushState(null, '', `#${slug}`);
-      } else {
-        history.pushState(null, '', window.location.pathname);
+        targetPath = getCategoryPath(state.activeCategory, state.activeSubcategory);
       }
+      history.pushState(null, '', targetPath);
       updateProductMeta(null);
     }
   }
@@ -1255,7 +1202,7 @@
   }
 
   // ==========================================================================
-  // 9. ROUTING Y DEEP LINKING
+  // 9. ROUTING 100% LIMPIO SIN HASHTAGS (SEO FRIENDLY)
   // ==========================================================================
   function setupHistoryRouting() {
     window.addEventListener('popstate', (e) => {
@@ -1263,7 +1210,7 @@
         const prod = state.products.find(p => p.codigo === e.state.productCode);
         if (prod) openProductModal(prod, 'image', false);
       } else if (e.state && e.state.category) {
-        activateCategory(e.state.category, 'todos', false);
+        activateCategory(e.state.category, e.state.subcategory || 'todos', false);
         closeProductModal(false);
       } else {
         checkDeepLink();
@@ -1272,7 +1219,7 @@
   }
 
   function checkDeepLink() {
-    // 0. Si la página tiene categoría inicial fija (subpáginas /cascos/, /guantes/, etc.)
+    // 0. Si la página tiene categoría inicial fija (dataset en subpáginas estáticas)
     const initialCat = document.body.dataset.initialCat;
     const initialSubcat = document.body.dataset.subcat || 'todos';
     if (initialCat) {
@@ -1280,25 +1227,36 @@
       return;
     }
 
-    const hash = window.location.hash.toLowerCase();
+    // 1. Revisar pathname limpio (/cascos/, /guantes/, etc.)
+    const path = window.location.pathname.toLowerCase();
     const searchParams = new URLSearchParams(window.location.search);
     const prodParam = searchParams.get('producto') || searchParams.get('p');
     const catParam = searchParams.get('categoria') || searchParams.get('cat');
     const subcatParam = searchParams.get('subcategoria') || searchParams.get('subcat');
 
-    // 1. Revisar si es enlace a producto
-    let targetCodeOrSlug = null;
-    if (hash.startsWith('#producto-')) {
-      targetCodeOrSlug = hash.replace('#producto-', '');
-    } else if (prodParam) {
-      targetCodeOrSlug = prodParam;
+    // 2. Si vino con hashtag antiguo, sanitizar de inmediato para SEO
+    const hash = window.location.hash.toLowerCase();
+    if (hash && hash.length > 1) {
+      const cleanHash = hash.replace('#cat-', '').replace('#producto-', '').replace('#', '');
+      if (hash.startsWith('#producto-')) {
+        const matched = state.products.find(p => slugify(p.codigo) === cleanHash || p.codigo.toLowerCase() === cleanHash);
+        if (matched) {
+          history.replaceState(null, '', `?p=${slugify(matched.codigo)}`);
+          openProductModal(matched, 'image', false);
+          return;
+        }
+      } else {
+        handleCategoryRoute(cleanHash, true);
+        return;
+      }
     }
 
-    if (targetCodeOrSlug && state.products.length > 0) {
+    // 3. Revisar si hay parámetro de producto ?p=...
+    if (prodParam && state.products.length > 0) {
       const matchedProd = state.products.find(p => 
-        slugify(p.codigo) === slugify(targetCodeOrSlug) ||
-        p.codigo.toLowerCase() === targetCodeOrSlug.toLowerCase() ||
-        slugify(p.nombre) === slugify(targetCodeOrSlug)
+        slugify(p.codigo) === slugify(prodParam) ||
+        p.codigo.toLowerCase() === prodParam.toLowerCase() ||
+        slugify(p.nombre) === slugify(prodParam)
       );
 
       if (matchedProd) {
@@ -1309,10 +1267,45 @@
       }
     }
 
-    // 2. Revisar si es enlace a categoría o subcategoría independiente
-    if (hash && hash !== '#catalogo' && hash !== '#hero') {
-      const cleanHash = hash.replace('#cat-', '').replace('#', '');
-      handleCategoryHash(cleanHash);
+    // 4. Mapeo de subdirectorios
+    if (path.includes('/cascos')) {
+      activateCategory('Cascos', 'todos', false);
+      return;
+    }
+    if (path.includes('/guantes')) {
+      activateCategory('Guantes', 'todos', false);
+      return;
+    }
+    if (path.includes('/luces-delanteras')) {
+      activateCategory('Iluminación', 'delantera', false);
+      return;
+    }
+    if (path.includes('/luces-traseras')) {
+      activateCategory('Iluminación', 'trasera', false);
+      return;
+    }
+    if (path.includes('/iluminacion') || path.includes('/luces')) {
+      activateCategory('Iluminación', 'todos', false);
+      return;
+    }
+    if (path.includes('/audifonos')) {
+      activateCategory('Audífonos', 'todos', false);
+      return;
+    }
+    if (path.includes('/gafas')) {
+      activateCategory('Gafas', 'todos', false);
+      return;
+    }
+    if (path.includes('/bolsas')) {
+      activateCategory('Bolsas y Magnesio', 'todos', false);
+      return;
+    }
+    if (path.includes('/gorras')) {
+      activateCategory('Gorras', 'todos', false);
+      return;
+    }
+    if (path.includes('/componentes')) {
+      activateCategory('Componentes', 'todos', false);
       return;
     }
 
@@ -1321,71 +1314,62 @@
     }
   }
 
-  function handleCategoryHash(cleanHash) {
-    const h = cleanHash.toLowerCase();
+  function handleCategoryRoute(routeStr, replaceHistory = false) {
+    const h = (routeStr || '').toLowerCase();
 
     if (h.includes('casco')) {
-      activateCategory('Cascos', 'todos');
+      activateCategory('Cascos', 'todos', true, replaceHistory);
       return;
     }
-
     if (h.includes('guante')) {
-      activateCategory('Guantes', 'todos');
+      activateCategory('Guantes', 'todos', true, replaceHistory);
       return;
     }
-
     if (h.includes('luces-delanteras') || h.includes('luz-delantera') || h.includes('delantera')) {
-      activateCategory('Iluminación', 'delantera');
+      activateCategory('Iluminación', 'delantera', true, replaceHistory);
       return;
     }
-
     if (h.includes('luces-traseras') || h.includes('luz-trasera') || h.includes('trasera')) {
-      activateCategory('Iluminación', 'trasera');
+      activateCategory('Iluminación', 'trasera', true, replaceHistory);
       return;
     }
-
     if (h.includes('iluminac') || h.includes('luz') || h.includes('luces')) {
-      activateCategory('Iluminación', 'todos');
+      activateCategory('Iluminación', 'todos', true, replaceHistory);
       return;
     }
-
-    if (h.includes('audifon') || h.includes('audífon') || h.includes('ts19') || h.includes('langsdom')) {
-      activateCategory('Audífonos', 'todos');
+    if (h.includes('audifono')) {
+      activateCategory('Audífonos', 'todos', true, replaceHistory);
       return;
     }
-
-    if (h.includes('gafa') || h.includes('lentes') || h.includes('rockbros')) {
-      activateCategory('Gafas', 'todos');
+    if (h.includes('gafa')) {
+      activateCategory('Gafas', 'todos', true, replaceHistory);
       return;
     }
-
-    if (h.includes('bolsa') || h.includes('magnesio') || h.includes('mochila') || h.includes('rinonera') || h.includes('escalada')) {
-      activateCategory('Bolsas', 'todos');
+    if (h.includes('bolsa') || h.includes('magnesio')) {
+      activateCategory('Bolsas y Magnesio', 'todos', true, replaceHistory);
       return;
     }
-
     if (h.includes('gorra')) {
-      activateCategory('Gorras', 'todos');
+      activateCategory('Gorras', 'todos', true, replaceHistory);
       return;
     }
-
-    if (h.includes('componente') || h.includes('pedal') || h.includes('accesorios')) {
-      activateCategory('Componentes', 'todos');
+    if (h.includes('componente') || h.includes('pedal')) {
+      activateCategory('Componentes', 'todos', true, replaceHistory);
       return;
     }
 
     const matchedCategory = state.categories.find(c => 
       slugify(c.nombre) === h || 
-      (c.slug && c.slug.toLowerCase() === h) ||
+      (c.slug && c.slug === h) ||
       c.id.toLowerCase() === h
     );
 
     if (matchedCategory) {
-      activateCategory(matchedCategory.nombre, 'todos');
+      activateCategory(matchedCategory.nombre, 'todos', true, replaceHistory);
     }
   }
 
-  function activateCategory(categoryName, subcategory = 'todos', pushState = true) {
+  function activateCategory(categoryName, subcategory = 'todos', pushState = true, replaceState = false) {
     state.activeCategory = categoryName;
     state.activeSubcategory = subcategory || 'todos';
     state.activeDiscipline = 'todos';
@@ -1397,13 +1381,13 @@
     renderCategoryPills();
     renderCatalog();
 
-    if (pushState) {
-      const catObj = state.categories.find(c => c.nombre.toLowerCase() === categoryName.toLowerCase());
-      let slug = catObj ? (catObj.slug || slugify(catObj.nombre)) : slugify(categoryName);
-      if (categoryName.toLowerCase().includes('iluminac') && subcategory === 'delantera') slug = 'luces-delanteras';
-      if (categoryName.toLowerCase().includes('iluminac') && subcategory === 'trasera') slug = 'luces-traseras';
-      
-      history.pushState({ category: categoryName, subcategory: subcategory }, '', `#${slug}`);
+    if (pushState || replaceState) {
+      const targetPath = getCategoryPath(categoryName, subcategory);
+      if (replaceState) {
+        history.replaceState({ category: categoryName, subcategory: subcategory }, '', targetPath);
+      } else {
+        history.pushState({ category: categoryName, subcategory: subcategory }, '', targetPath);
+      }
     }
 
     updateCategoryMeta(categoryName, subcategory);
@@ -1443,6 +1427,8 @@
   function updateCategoryMeta(catName, subcatName) {
     let title = `${catName} | Catálogo Oficial LEV Wild Spirit`;
     let desc = `Descubre todos los modelos, diseños y colores de ${catName} en LEV Wild Spirit. Equipamiento deportivo de alto rendimiento.`;
+    const cleanPath = getCategoryPath(catName, subcatName);
+    const pageUrl = `https://levwild.com${cleanPath}`;
     
     if (catName.toLowerCase().includes('iluminac') && subcatName === 'delantera') {
       title = 'Luces Delanteras de Alta Potencia | LEV Wild Spirit';
@@ -1456,6 +1442,7 @@
     setMeta('metaDescription', desc, 'name', 'description');
     setMeta('ogTitle', title, 'property', 'og:title');
     setMeta('ogDescription', desc, 'property', 'og:description');
+    setMeta('ogUrl', pageUrl, 'property', 'og:url');
     setMeta('twitterTitle', title, 'name', 'twitter:title');
     setMeta('twitterDescription', desc, 'name', 'twitter:description');
   }
@@ -1464,8 +1451,8 @@
     if (!prod) {
       const defaultTitle = 'LEV Wild Spirit | Catálogo Oficial de Equipamiento Deportivo';
       const defaultDesc = 'Catálogo oficial de LEV Wild Spirit. Equipamiento de alto rendimiento para ciclismo, gimnasio y escalada: cascos, gafas polarizadas, audífonos deportivos, iluminación LED, guantes, pedales y bolsas técnicas.';
-      const defaultImg = new URL('images/brand/logo-lev-nav.png', window.location.href).href;
-      const defaultUrl = window.location.origin + window.location.pathname;
+      const defaultImg = 'https://levwild.com/images/brand/logo-lev-nav.png';
+      const defaultUrl = 'https://levwild.com/';
 
       document.title = defaultTitle;
       setMeta('metaDescription', defaultDesc, 'name', 'description');
@@ -1478,307 +1465,295 @@
       setMeta('twitterDescription', defaultDesc, 'name', 'twitter:description');
       setMeta('twitterImage', defaultImg, 'name', 'twitter:image');
 
-      removeMeta('property', 'og:price:amount');
-      removeMeta('property', 'og:price:currency');
-      removeMeta('property', 'product:retailer_item_id');
-      removeMeta('property', 'product:brand');
-      removeMeta('property', 'product:availability');
-      removeMeta('property', 'product:condition');
+      if (DOM.structuredData) {
+        DOM.structuredData.textContent = JSON.stringify(generateOrganizationSchema());
+      }
       return;
     }
 
-    const title = `${prod.nombre}${prod.subcategoria ? ` (${prod.subcategoria})` : ''} | LEV Wild Spirit`;
-    const desc = prod.descripcion || `Adquiere ${prod.nombre} en LEV Wild Spirit. Equipamiento deportivo de alta durabilidad y tecnología.`;
-    const firstImg = (prod.fotos && prod.fotos.length > 0) ? prod.fotos[0] : 'images/brand/logo-lev-nav.png';
-    const imgUrl = new URL(CONFIG.imagesPath + firstImg, window.location.href).href;
-    const prodUrl = `${window.location.origin}${window.location.pathname}#producto-${slugify(prod.codigo)}`;
+    const prodTitle = `${prod.nombre} (${prod.codigo}) | LEV Wild Spirit`;
+    const prodDesc = `${prod.descripcion || 'Equipamiento de alto rendimiento LEV Wild Spirit.'} ${prod.subcategoria ? `Variante: ${prod.subcategoria}.` : ''} Precio al público: ${formatPriceText(prod.precio)}. Pedidos inmediatos por WhatsApp.`;
+    const prodImg = (prod.fotos && prod.fotos.length > 0) ? `https://levwild.com/images/products/${prod.fotos[0]}` : 'https://levwild.com/images/brand/logo-lev-nav.png';
+    const prodUrl = `https://levwild.com/?p=${slugify(prod.codigo)}`;
 
-    document.title = title;
-    setMeta('metaDescription', desc, 'name', 'description');
-    setMeta('ogTitle', title, 'property', 'og:title');
-    setMeta('ogDescription', desc, 'property', 'og:description');
-    setMeta('ogImage', imgUrl, 'property', 'og:image');
+    document.title = prodTitle;
+    setMeta('metaDescription', prodDesc, 'name', 'description');
+    setMeta('ogTitle', prodTitle, 'property', 'og:title');
+    setMeta('ogDescription', prodDesc, 'property', 'og:description');
+    setMeta('ogImage', prodImg, 'property', 'og:image');
     setMeta('ogUrl', prodUrl, 'property', 'og:url');
     setMeta('ogType', 'product', 'property', 'og:type');
-    setMeta('twitterTitle', title, 'name', 'twitter:title');
-    setMeta('twitterDescription', desc, 'name', 'twitter:description');
-    setMeta('twitterImage', imgUrl, 'name', 'twitter:image');
-
-    const brand = detectBrand(prod);
-
-    if (prod.precio) {
-      setMeta('ogPrice', parseFloat(prod.precio).toFixed(2), 'property', 'og:price:amount');
-      setMeta('ogCurrency', 'USD', 'property', 'og:price:currency');
-    }
-    setMeta('productItemId', prod.codigo, 'property', 'product:retailer_item_id');
-    setMeta('productBrand', brand, 'property', 'product:brand');
-    setMeta('productAvail', 'in stock', 'property', 'product:availability');
-    setMeta('productCondition', 'new', 'property', 'product:condition');
+    setMeta('twitterTitle', prodTitle, 'name', 'twitter:title');
+    setMeta('twitterDescription', prodDesc, 'name', 'twitter:description');
+    setMeta('twitterImage', prodImg, 'name', 'twitter:image');
 
     if (DOM.structuredData) {
-      const schemaData = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": prod.nombre,
-        "image": (prod.fotos || []).map(f => new URL(CONFIG.imagesPath + f, window.location.href).href),
-        "description": prod.descripcion || `${prod.nombre} equipamiento deportivo`,
-        "sku": prod.codigo,
-        "mpn": prod.codigo,
-        "brand": {
-          "@type": "Brand",
-          "name": brand
-        },
-        "category": prod.categoria,
-        "offers": {
-          "@type": "Offer",
-          "url": prodUrl,
-          "priceCurrency": "USD",
-          "price": prod.precio ? parseFloat(prod.precio).toFixed(2) : "0.00",
-          "itemCondition": "https://schema.org/NewCondition",
-          "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "Organization",
-            "name": "LEV Wild Spirit"
-          }
-        }
-      };
-      DOM.structuredData.textContent = JSON.stringify(schemaData, null, 2);
+      DOM.structuredData.textContent = JSON.stringify(generateProductSchema(prod, prodUrl, prodImg));
     }
   }
 
-  function setMeta(elementId, content, attrName, attrValue) {
-    let el = document.getElementById(elementId);
+  function setMeta(elementKey, value, attrType, attrName) {
+    let el = DOM[elementKey] || document.querySelector(`meta[${attrType}="${attrName}"]`);
     if (!el) {
-      el = document.querySelector(`meta[${attrName}="${attrValue}"]`);
+      el = document.createElement('meta');
+      el.setAttribute(attrType, attrName);
+      document.head.appendChild(el);
+      DOM[elementKey] = el;
     }
-    if (el) {
-      el.setAttribute('content', content);
-    } else {
-      const newMeta = document.createElement('meta');
-      newMeta.setAttribute(attrName, attrValue);
-      newMeta.setAttribute('content', content);
-      if (elementId) newMeta.id = elementId;
-      document.head.appendChild(newMeta);
-    }
+    el.setAttribute('content', value);
   }
 
-  function removeMeta(attrName, attrValue) {
-    const el = document.querySelector(`meta[${attrName}="${attrValue}"]`);
-    if (el) {
-      el.remove();
-    }
+  function generateOrganizationSchema() {
+    return {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "LEV Wild Spirit",
+      "url": "https://levwild.com",
+      "logo": "https://levwild.com/images/brand/logo-lev-nav.png",
+      "description": "Equipamiento deportivo de alto rendimiento para ciclismo, gimnasio y escalada.",
+      "telephone": "+593985346800",
+      "sameAs": [
+        "https://www.instagram.com/lev.wildspirit/",
+        "https://www.facebook.com/profile.php?id=61593353747996"
+      ]
+    };
+  }
+
+  function generateProductSchema(prod, url, imageUrl) {
+    const brandName = detectBrand(prod);
+    const schema = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": prod.nombre,
+      "image": [imageUrl],
+      "description": prod.descripcion || `${prod.nombre} de alto rendimiento en LEV Wild Spirit.`,
+      "sku": prod.codigo,
+      "mpn": prod.codigo,
+      "brand": {
+        "@type": "Brand",
+        "name": brandName
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": url,
+        "priceCurrency": "USD",
+        "price": prod.precio ? parseFloat(prod.precio).toFixed(2) : "0.00",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "LEV Wild Spirit"
+        }
+      }
+    };
+    return schema;
   }
 
   // ==========================================================================
-  // 11. FILTRADO Y RESUMEN
+  // 11. FILTRADO, BÚSQUEDA Y LÓGICA DE ESTADO
   // ==========================================================================
   function filterByDisciplineOnly(products, discipline) {
-    if (discipline === 'todos') return products;
-    const target = discipline.toLowerCase();
-
+    if (!discipline || discipline === 'todos') return products;
     return products.filter(p => {
-      if (p.disciplinas && Array.isArray(p.disciplinas)) {
-        const hasDisc = p.disciplinas.some(d => d.toLowerCase() === target);
-        if (hasDisc) return true;
-      }
-
-      const cat = (p.categoria || '').toLowerCase();
-      const sub = (p.subcategoria || '').toLowerCase();
-
-      if (target === 'ciclismo') {
-        return cat === 'cascos' || cat === 'gafas' || cat === 'iluminación' || cat === 'guantes' || cat === 'gorras' || cat === 'componentes';
-      }
-      if (target === 'gym') {
-        return cat === 'audífonos' || sub.includes('gimnasio') || sub.includes('gym');
-      }
-      if (target === 'escalada') {
-        return sub.includes('escalada') || (p.nombre && p.nombre.toLowerCase().includes('magnesio'));
-      }
-      return true;
+      const d = (p.disciplina || '').toLowerCase();
+      if (d === 'todos' || d === '') return true;
+      if (discipline === 'gym') return d.includes('gym') || d.includes('training') || d.includes('gimnasio');
+      if (discipline === 'ciclismo') return d.includes('ciclismo') || d.includes('ruta') || d.includes('mtb');
+      if (discipline === 'escalada') return d.includes('escalada');
+      return d.includes(discipline);
     });
   }
 
   function getFilteredProducts() {
-    let result = filterByDisciplineOnly(state.products, state.activeDiscipline);
+    return state.products.filter(prod => {
+      // Filtro Disciplina
+      if (state.activeDiscipline !== 'todos') {
+        const d = (prod.disciplina || '').toLowerCase();
+        if (d !== 'todos' && d !== '') {
+          if (state.activeDiscipline === 'gym' && !(d.includes('gym') || d.includes('training') || d.includes('gimnasio'))) return false;
+          if (state.activeDiscipline === 'ciclismo' && !(d.includes('ciclismo') || d.includes('ruta') || d.includes('mtb'))) return false;
+          if (state.activeDiscipline === 'escalada' && !d.includes('escalada')) return false;
+        }
+      }
 
-    if (state.activeCategory !== 'todos') {
-      result = result.filter(p => p.categoria.toLowerCase() === state.activeCategory.toLowerCase());
-    }
+      // Filtro Categoría
+      if (state.activeCategory !== 'todos') {
+        if (prod.categoria.toLowerCase() !== state.activeCategory.toLowerCase()) {
+          return false;
+        }
+      }
 
-    if (state.activeSubcategory !== 'todos') {
-      const sf = state.activeSubcategory.toLowerCase();
-      result = result.filter(p => {
-        const sub = (p.subcategoria || '').toLowerCase();
-        const name = (p.nombre || '').toLowerCase();
-        const code = (p.codigo || '').toLowerCase();
+      // Filtro Subcategoría
+      if (state.activeSubcategory !== 'todos') {
+        const subfilter = state.activeSubcategory.toLowerCase();
+        const pSub = (prod.subcategoria || '').toLowerCase();
+        const pName = (prod.nombre || '').toLowerCase();
 
-        if (sf === 'delantera') return sub.includes('delantera') || name.includes('delantera') || sub.includes('dual');
-        if (sf === 'trasera') return sub.includes('trasera') || name.includes('trasera') || sub.includes('sensor') || sub.includes('dual') || sub.includes('aluminio') || sub.includes('polímero');
-        if (sf === 'dual') return sub.includes('dual');
-        if (sf === '12h15') return code.includes('12h15') || name.includes('12h15');
-        if (sf === '12h22n') return code.includes('12h22n') || name.includes('12h22n');
-        if (sf === '12h09') return code.includes('12h09') || name.includes('12h09');
-        if (sf === '11h01') return code.includes('11h01') || name.includes('11h01');
-        if (sf === 'ts19') return code.includes('ts19') || name.includes('ts19');
-        if (sf === 'openair') return code.includes('openair') || name.includes('openair');
-        if (sf === 'h12') return code.includes('h12') || name.includes('h12');
-        if (sf === 'magnesio') return name.includes('magnesio') || sub.includes('escalada') || sub.includes('azul') || sub.includes('amarillo') || sub.includes('verde') || sub.includes('negro');
-        if (sf === 'gym') return sub.includes('gimnasio') || name.includes('gym');
-        if (sf === 'ciclismo') return sub.includes('ciclismo') || name.includes('bicicleta');
-        if (sf === 'adulto') return sub.includes('adulto');
-        if (sf === 'nino') return sub.includes('niño') || sub.includes('nino') || code.includes('nino');
-        if (sf === '10h1') return code.includes('10h1');
-        if (sf === '10h2') return code.includes('10h2');
-        return sub.includes(sf) || name.includes(sf);
-      });
-    }
+        if (subfilter === 'delantera' && !(pSub.includes('delantera') || pName.includes('delantera'))) return false;
+        if (subfilter === 'trasera' && !(pSub.includes('trasera') || pName.includes('trasera') || pSub.includes('sensor de freno') || pSub.includes('automática'))) return false;
+        if (subfilter === 'adulto' && !pSub.includes('adulto')) return false;
+        if (subfilter === 'niño' && !(pSub.includes('niño') || pSub.includes('nino') || pName.includes('niño'))) return false;
+        
+        // Modelos de cascos
+        if (state.activeCategory.toLowerCase().includes('casco')) {
+          const family = slugify(getProductFamilyName(prod.nombre));
+          if (family && family !== subfilter) return false;
+        }
+      }
 
-    if (state.searchQuery.trim() !== '') {
-      const q = state.searchQuery.toLowerCase().trim();
-      result = result.filter(p => {
-        return (
-          p.nombre.toLowerCase().includes(q) ||
-          p.codigo.toLowerCase().includes(q) ||
-          p.categoria.toLowerCase().includes(q) ||
-          (p.subcategoria && p.subcategoria.toLowerCase().includes(q)) ||
-          (p.descripcion && p.descripcion.toLowerCase().includes(q)) ||
-          (p.especificaciones_raw && p.especificaciones_raw.toLowerCase().includes(q))
-        );
-      });
-    }
+      // Búsqueda por texto libre
+      if (state.searchQuery.trim() !== '') {
+        const q = state.searchQuery.toLowerCase().trim();
+        const inName = (prod.nombre || '').toLowerCase().includes(q);
+        const inCode = (prod.codigo || '').toLowerCase().includes(q);
+        const inCat = (prod.categoria || '').toLowerCase().includes(q);
+        const inSub = (prod.subcategoria || '').toLowerCase().includes(q);
+        const inDesc = (prod.descripcion || '').toLowerCase().includes(q);
+        const inSpecs = JSON.stringify(prod.especificaciones || {}).toLowerCase().includes(q);
+        const inBrand = detectBrand(prod).toLowerCase().includes(q);
 
-    return result;
+        return inName || inCode || inCat || inSub || inDesc || inSpecs || inBrand;
+      }
+
+      return true;
+    });
+  }
+
+  function getSiblingVariants(prod) {
+    const family = getProductFamilyKey(prod);
+    return state.products.filter(p => getProductFamilyKey(p) === family);
+  }
+
+  function getProductFamilyKey(prod) {
+    const code = (prod.codigo || '').toUpperCase();
+    const name = (prod.nombre || '').toLowerCase();
+
+    if (code.startsWith('LEV-CAS-12H15')) return 'CAS-12H15';
+    if (code.startsWith('LEV-CAS-12H22N')) return 'CAS-12H22N';
+    if (code.startsWith('LEV-CAS-12H09')) return 'CAS-12H09';
+    if (code.startsWith('LEV-CAS-11H01')) return 'CAS-11H01';
+    if (code.startsWith('LEV-GAF-10H1')) return 'GAF-10H1';
+    if (code.startsWith('LEV-GAF-10H2')) return 'GAF-10H2';
+    if (code.startsWith('LEV-AUD-LANG-TS19')) return 'AUD-TS19';
+    if (code.startsWith('LEV-BOL-ESC')) return 'BOL-ESC';
+
+    return prod.codigo;
+  }
+
+  function getProductFamilyName(name) {
+    if (!name) return '';
+    const clean = name.replace(/-\s*(Plomo|Negro|Blanco|Rojo|Verde|Azul|Amarillo|Beige).*$/i, '').trim();
+    return clean;
+  }
+
+  function getVariantColorHex(variantStr) {
+    if (!variantStr) return null;
+    const v = variantStr.toLowerCase();
+    if (v.includes('plomo') || v.includes('gris')) return '#64748B';
+    if (v.includes('blanco con azul')) return 'linear-gradient(135deg, #FFFFFF 50%, #0284C7 50%)';
+    if (v.includes('verde con blanco')) return 'linear-gradient(135deg, #22C55E 50%, #FFFFFF 50%)';
+    if (v.includes('negro con rojo')) return 'linear-gradient(135deg, #090D16 50%, #EF4444 50%)';
+    if (v.includes('negro con blanco')) return 'linear-gradient(135deg, #090D16 50%, #FFFFFF 50%)';
+    if (v.includes('negro con plomo') || v.includes('negro con gris')) return 'linear-gradient(135deg, #090D16 50%, #64748B 50%)';
+    if (v.includes('rojo con negro')) return 'linear-gradient(135deg, #EF4444 50%, #090D16 50%)';
+    if (v.includes('negro con azul')) return 'linear-gradient(135deg, #090D16 50%, #0284C7 50%)';
+    if (v.includes('negro') || v.includes('black')) return '#090D16';
+    if (v.includes('blanco') || v.includes('white')) return '#FFFFFF';
+    if (v.includes('rojo') || v.includes('red')) return '#EF4444';
+    if (v.includes('azul') || v.includes('blue')) return '#0284C7';
+    if (v.includes('amarillo') || v.includes('yellow')) return '#FACC15';
+    if (v.includes('verde') || v.includes('green')) return '#22C55E';
+    if (v.includes('beige')) return '#E2D9C8';
+    return null;
+  }
+
+  function getCategoryEmoji(catName) {
+    const c = (catName || '').toLowerCase();
+    if (c.includes('casco')) return '🪖';
+    if (c.includes('guante')) return '🧤';
+    if (c.includes('iluminac') || c.includes('luz') || c.includes('luces')) return '💡';
+    if (c.includes('audifono')) return '🎧';
+    if (c.includes('gafa')) return '🕶️';
+    if (c.includes('bolsa') || c.includes('magnesio')) return '🎒';
+    if (c.includes('gorra')) return '🧢';
+    if (c.includes('componente') || c.includes('pedal')) return '⚙️';
+    return '⚡';
+  }
+
+  function slugify(text) {
+    if (!text) return '';
+    return text.toString().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '')
+      .replace(/--+/g, '-')
+      .replace(/^-+|-+$/g, '');
   }
 
   function updateResultsSummary(count) {
     if (!DOM.resultsCountText) return;
-
-    let text = `Mostrando ${count} ${count === 1 ? 'producto' : 'productos'}`;
-    let isFiltered = false;
-
-    if (state.activeDiscipline !== 'todos') {
-      text += ` en ${state.activeDiscipline.toUpperCase()}`;
-      isFiltered = true;
-    }
+    let label = `${count} ${count === 1 ? 'producto encontrado' : 'productos encontrados'}`;
     if (state.activeCategory !== 'todos') {
-      text += ` &bull; Categoría: ${state.activeCategory}`;
-      isFiltered = true;
+      label += ` en <strong>${state.activeCategory}</strong>`;
     }
-    if (state.activeSubcategory !== 'todos') {
-      text += ` &bull; Filtro: ${state.activeSubcategory.toUpperCase()}`;
-      isFiltered = true;
+    if (state.activeDiscipline !== 'todos') {
+      label += ` (${state.activeDiscipline.toUpperCase()})`;
     }
-    if (state.searchQuery.trim() !== '') {
-      text += ` &bull; Búsqueda: "${state.searchQuery}"`;
-      isFiltered = true;
+    if (state.searchQuery) {
+      label += ` para "${state.searchQuery}"`;
     }
-
-    DOM.resultsCountText.innerHTML = text;
-
-    if (DOM.resetFiltersBtn) {
-      DOM.resetFiltersBtn.style.display = isFiltered ? 'inline-block' : 'none';
-    }
+    DOM.resultsCountText.innerHTML = label;
   }
 
   // ==========================================================================
-  // 12. GESTIÓN DE TEMA (MODO OSCURO Y CLARO)
-  // ==========================================================================
-  function initTheme() {
-    const savedTheme = localStorage.getItem('lev_theme') || 'dark';
-    applyTheme(savedTheme);
-  }
-
-  function applyTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    document.body.className = theme === 'light' ? 'theme-light' : 'theme-dark';
-    localStorage.setItem('lev_theme', theme);
-
-    if (DOM.themeToggleBtn) {
-      const sun = DOM.themeToggleBtn.querySelector('.sun-icon');
-      const moon = DOM.themeToggleBtn.querySelector('.moon-icon');
-      if (sun && moon) {
-        sun.style.display = theme === 'light' ? 'none' : 'block';
-        moon.style.display = theme === 'light' ? 'block' : 'none';
-      }
-    }
-
-    if (DOM.mobileThemeToggleBtn) {
-      DOM.mobileThemeToggleBtn.textContent = theme === 'light' ? '🌙 Modo Oscuro' : '☀️ Fondo Blanco';
-    }
-  }
-
-  function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme') || 'dark';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-  }
-
-  // ==========================================================================
-  // 13. LISTENERS GLOBALES Y UTILIDADES
+  // 12. EVENTOS GLOBALES Y CONTROLES UI
   // ==========================================================================
   function setupEventListeners() {
-    if (DOM.themeToggleBtn) DOM.themeToggleBtn.addEventListener('click', toggleTheme);
-    if (DOM.mobileThemeToggleBtn) {
-      DOM.mobileThemeToggleBtn.addEventListener('click', () => {
-        toggleTheme();
-        if (DOM.mobileDrawer) DOM.mobileDrawer.classList.remove('open');
-        if (DOM.mobileMenuToggle) DOM.mobileMenuToggle.classList.remove('open');
-      });
-    }
-
-    window.addEventListener('scroll', () => {
-      if (DOM.header) {
-        if (window.scrollY > 40) {
-          DOM.header.classList.add('scrolled');
-        } else {
-          DOM.header.classList.remove('scrolled');
-        }
-      }
-    }, { passive: true });
-
+    // Disciplinas Desktop
     if (DOM.navDesktop) {
       DOM.navDesktop.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           DOM.navDesktop.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          state.activeDiscipline = btn.dataset.discipline;
-          state.activeCategory = 'todos';
-          state.activeSubcategory = 'todos';
+          state.activeDiscipline = btn.dataset.discipline || 'todos';
           renderCategoryPills();
           renderCatalog();
         });
       });
     }
 
-    document.querySelectorAll('.drawer-pill:not(#mobileThemeToggleBtn)').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.drawer-pill:not(#mobileThemeToggleBtn)').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        state.activeDiscipline = btn.dataset.discipline;
-        state.activeCategory = 'todos';
-        state.activeSubcategory = 'todos';
-        if (DOM.mobileDrawer) DOM.mobileDrawer.classList.remove('open');
-        if (DOM.mobileMenuToggle) DOM.mobileMenuToggle.classList.remove('open');
-        
-        if (DOM.navDesktop) {
-          DOM.navDesktop.querySelectorAll('.nav-btn').forEach(b => {
-            b.classList.toggle('active', b.dataset.discipline === state.activeDiscipline);
-          });
-        }
-
-        renderCategoryPills();
-        renderCatalog();
-      });
-    });
-
+    // Menú Móvil Hamburguesa
     if (DOM.mobileMenuToggle && DOM.mobileDrawer) {
       DOM.mobileMenuToggle.addEventListener('click', () => {
         const isOpen = DOM.mobileDrawer.classList.toggle('open');
-        DOM.mobileMenuToggle.classList.toggle('open', isOpen);
-        DOM.mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        DOM.mobileMenuToggle.classList.toggle('open');
+        DOM.mobileMenuToggle.setAttribute('aria-expanded', isOpen);
       });
     }
 
+    // Disciplinas Móvil
+    if (DOM.mobileDrawer) {
+      DOM.mobileDrawer.querySelectorAll('.drawer-pill[data-discipline]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          DOM.mobileDrawer.querySelectorAll('.drawer-pill[data-discipline]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.activeDiscipline = btn.dataset.discipline || 'todos';
+          
+          if (DOM.navDesktop) {
+            DOM.navDesktop.querySelectorAll('.nav-btn').forEach(b => {
+              b.classList.toggle('active', b.dataset.discipline === state.activeDiscipline);
+            });
+          }
+
+          DOM.mobileDrawer.classList.remove('open');
+          DOM.mobileMenuToggle.classList.remove('open');
+          renderCategoryPills();
+          renderCatalog();
+        });
+      });
+    }
+
+    // Buscador
     if (DOM.searchInput) {
       DOM.searchInput.addEventListener('input', (e) => {
         state.searchQuery = e.target.value;
@@ -1791,7 +1766,7 @@
 
     if (DOM.searchClearBtn) {
       DOM.searchClearBtn.addEventListener('click', () => {
-        DOM.searchInput.value = '';
+        if (DOM.searchInput) DOM.searchInput.value = '';
         state.searchQuery = '';
         DOM.searchClearBtn.style.display = 'none';
         renderCatalog();
@@ -1800,43 +1775,50 @@
 
     if (DOM.searchToggleBtn) {
       DOM.searchToggleBtn.addEventListener('click', () => {
-        if (DOM.searchInput) {
-          DOM.searchInput.focus();
-          DOM.searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (DOM.searchBoxWrapper) {
+          DOM.searchBoxWrapper.classList.toggle('active');
+          if (DOM.searchBoxWrapper.classList.contains('active') && DOM.searchInput) {
+            DOM.searchInput.focus();
+          }
         }
       });
     }
 
-    if (DOM.resetFiltersBtn) DOM.resetFiltersBtn.addEventListener('click', resetAllFilters);
-    if (DOM.clearSearchActionBtn) DOM.clearSearchActionBtn.addEventListener('click', resetAllFilters);
+    if (DOM.resetFiltersBtn) {
+      DOM.resetFiltersBtn.addEventListener('click', resetAllFilters);
+    }
 
+    if (DOM.clearSearchActionBtn) {
+      DOM.clearSearchActionBtn.addEventListener('click', resetAllFilters);
+    }
+
+    // Modal cerrar
     if (DOM.modalCloseBtn) {
       DOM.modalCloseBtn.addEventListener('click', () => closeProductModal(true));
     }
+
     if (DOM.productModal) {
       DOM.productModal.addEventListener('click', (e) => {
-        if (e.target === DOM.productModal) closeProductModal(true);
+        if (e.target === DOM.productModal || e.target.classList.contains('modal-backdrop')) {
+          closeProductModal(true);
+        }
       });
     }
 
+    // Tecla ESC para cerrar modales
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (zoomState.isOpen) {
-          closeFullscreenZoom();
-        } else if (DOM.productModal && DOM.productModal.classList.contains('open')) {
-          closeProductModal(true);
-        }
-      } else if (zoomState.isOpen) {
-        if (e.key === 'ArrowLeft') {
-          setZoomPhoto(zoomState.currentIndex - 1);
-        } else if (e.key === 'ArrowRight') {
-          setZoomPhoto(zoomState.currentIndex + 1);
-        } else if (e.key === '+' || e.key === '=') {
-          zoomIn();
-        } else if (e.key === '-' || e.key === '_') {
-          zoomOut();
-        }
+        if (zoomState.isOpen) closeFullscreenZoom();
+        else if (DOM.productModal && DOM.productModal.classList.contains('open')) closeProductModal(true);
       }
+    });
+
+    // Smooth scroll suave para enlaces con data-action="scroll-catalogo"
+    document.querySelectorAll('[data-action="scroll-catalogo"], .announcement-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollToSection('filterBar');
+      });
     });
   }
 
@@ -1854,65 +1836,89 @@
         b.classList.toggle('active', b.dataset.discipline === 'todos');
       });
     }
-    document.querySelectorAll('.drawer-pill').forEach(b => {
-      b.classList.toggle('active', b.dataset.discipline === 'todos');
-    });
 
-    history.pushState(null, '', window.location.pathname);
+    history.pushState(null, '', '/');
     updateProductMeta(null);
 
     renderCategoryPills();
     renderCatalog();
+    scrollToSection('filterBar');
+  }
+
+  function scrollToSection(elementId) {
+    const el = document.getElementById(elementId);
+    if (el) {
+      const headerOffset = 90;
+      const elPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 
   function setupScrollAnimations() {
     const reveals = document.querySelectorAll('.scroll-reveal');
-    reveals.forEach(el => {
-      el.classList.add('visible');
-      el.classList.add('revealed');
-    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    reveals.forEach(r => observer.observe(r));
   }
 
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  // ==========================================================================
+  // 13. TEMA CLARO / OSCURO (BLANCO LIMPIO VS DARK MODE)
+  // ==========================================================================
+  function initTheme() {
+    const savedTheme = localStorage.getItem('lev_theme') || 'dark';
+    applyTheme(savedTheme);
+
+    const toggleTheme = () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('lev_theme', next);
+    };
+
+    if (DOM.themeToggleBtn) DOM.themeToggleBtn.addEventListener('click', toggleTheme);
+    if (DOM.mobileThemeToggleBtn) DOM.mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    
+    const isLight = theme === 'light';
+    if (isLight) {
+      document.body.classList.add('theme-light');
+    } else {
+      document.body.classList.remove('theme-light');
+    }
+
+    if (DOM.themeToggleBtn) {
+      const sun = DOM.themeToggleBtn.querySelector('.sun-icon');
+      const moon = DOM.themeToggleBtn.querySelector('.moon-icon');
+      if (sun && moon) {
+        sun.style.display = isLight ? 'none' : 'block';
+        moon.style.display = isLight ? 'block' : 'none';
+      }
+    }
+
+    if (DOM.mobileThemeToggleBtn) {
+      DOM.mobileThemeToggleBtn.textContent = isLight ? '🌙 Modo Oscuro' : '☀️ Fondo Blanco';
     }
   }
 
-  function slugify(text) {
-    return (text || '')
-      .toString()
-      .toLowerCase()
-      .trim()
-      .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]/g, '')
-      .replace(/--+/g, '-');
-  }
-
-  function getCategoryEmoji(cat) {
-    const map = {
-      'cascos': '🪖',
-      'gafas': '🕶️',
-      'audífonos': '🎧',
-      'audifonos': '🎧',
-      'iluminación': '💡',
-      'iluminacion': '💡',
-      'guantes': '🧤',
-      'componentes': '⚙️',
-      'bolsas': '🎒',
-      'gorras': '🧢'
-    };
-    return map[cat.toLowerCase()] || '⚡';
-  }
-
   // ==========================================================================
-  // 14. DATASET DE RESPALDO SINCRONIZADO CON DATA/PRODUCTOS.JSON
+  // 14. DATASET SINCRONIZADO DE RESPALDO (OFFLINE / FALLBACK)
   // ==========================================================================
   function loadFallbackData() {
-    const fallbackCatalog = {
+    const fallback = {
   "marca": {
     "nombre": "LEV Wild Spirit",
     "eslogan": "Potencia tu Rendimiento",
@@ -2940,18 +2946,21 @@
     }
   ]
 };
-
-    state.data = fallbackCatalog;
-    state.products = fallbackCatalog.productos || [];
-    state.categories = fallbackCatalog.categorias || [];
-    state.disciplines = fallbackCatalog.disciplinas || [];
-    state.videos = fallbackCatalog.videos || [];
-    if (fallbackCatalog.marca && fallbackCatalog.marca.whatsapp_numero) {
-      CONFIG.defaultWhatsapp = fallbackCatalog.marca.whatsapp_numero;
+    state.data = fallback;
+    state.products = fallback.productos || [];
+    state.categories = fallback.categorias || [];
+    state.disciplines = fallback.disciplinas || [];
+    state.videos = fallback.videos || [];
+    if (fallback.marca && fallback.marca.whatsapp_numero) {
+      CONFIG.defaultWhatsapp = fallback.marca.whatsapp_numero;
     }
+    renderVideoShowcase();
+    renderCategoryPills();
+    renderNavigationLinks();
+    renderCatalog();
   }
 
-  // Iniciar aplicación
+  // Iniciar al cargar el DOM
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
