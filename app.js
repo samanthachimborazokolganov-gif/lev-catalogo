@@ -3,7 +3,7 @@
  * - URLs 100% LIMPIAS SIN HASHTAGS (#) PARA SEO (ej: https://levwild.com/cascos/, https://levwild.com/guantes/)
  * - Subpáginas estáticas dedicadas por categoría con Metatags Open Graph y Twitter Cards
  * - Sincronización en tiempo real de variantes de diseño y color en tarjeta y modal
- * - Mensajes de WhatsApp predeterminados exactos con Nombre, Código, Variante y Precio USD
+ * - Mensajes de WhatsApp predeterminados exactos con Nombre, Variante y Precio USD
  * - Showcase cinemático de videos demostrativos en ruta
  * - Zoom interactivo HD con lupa y Lightbox fullscreen
  */
@@ -503,7 +503,7 @@
           <img src="${CONFIG.imagesPath}${photo}" 
                alt="${prod.nombre} - ${prod.subcategoria || ''}" 
                loading="lazy"
-               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span><span class=\'placeholder-code\'>${prod.codigo}</span></div>';">
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span></div>';">
         </div>
       `;
     });
@@ -740,14 +740,13 @@
         };
       }
 
-      // Click en la foto de la tarjeta abre el modal
       carouselEl.onclick = (e) => {
         if (e.target.closest('.carousel-btn') || e.target.closest('.carousel-dot') || e.target.closest('.card-zoom-btn')) return;
         if (prod) openProductModal(prod, 'image', true);
       };
     });
 
-    // Cambiar variante directamente en la tarjeta
+    // Cambiar variante en la tarjeta
     document.querySelectorAll('.variant-pill-btn').forEach(pill => {
       pill.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -1215,7 +1214,6 @@
   }
 
   function checkDeepLink() {
-    // 0. Si la página tiene categoría inicial fija (dataset en subpáginas estáticas)
     const initialCat = document.body.dataset.initialCat;
     const initialSubcat = document.body.dataset.subcat || 'todos';
     if (initialCat) {
@@ -1223,14 +1221,12 @@
       return;
     }
 
-    // 1. Revisar pathname limpio (/cascos/, /guantes/, etc.)
     const path = window.location.pathname.toLowerCase();
     const searchParams = new URLSearchParams(window.location.search);
     const prodParam = searchParams.get('producto') || searchParams.get('p');
     const catParam = searchParams.get('categoria') || searchParams.get('cat');
     const subcatParam = searchParams.get('subcategoria') || searchParams.get('subcat');
 
-    // 2. Si vino con hashtag antiguo, sanitizar de inmediato para SEO
     const hash = window.location.hash.toLowerCase();
     if (hash && hash.length > 1) {
       const cleanHash = hash.replace('#cat-', '').replace('#producto-', '').replace('#', '');
@@ -1247,7 +1243,6 @@
       }
     }
 
-    // 3. Revisar si hay parámetro de producto ?p=...
     if (prodParam && state.products.length > 0) {
       const matchedProd = state.products.find(p => 
         slugify(p.codigo) === slugify(prodParam) ||
@@ -1263,7 +1258,6 @@
       }
     }
 
-    // 4. Mapeo de subdirectorios
     if (path.includes('/cascos')) {
       activateCategory('Cascos', 'todos', false);
       return;
@@ -1467,7 +1461,7 @@
       return;
     }
 
-    const prodTitle = `${prod.nombre} (${prod.codigo}) | LEV Wild Spirit`;
+    const prodTitle = `${prod.nombre} | LEV Wild Spirit`;
     const prodDesc = `${prod.descripcion || 'Equipamiento de alto rendimiento LEV Wild Spirit.'} ${prod.subcategoria ? `Variante: ${prod.subcategoria}.` : ''} Precio al público: ${formatPriceText(prod.precio)}. Pedidos inmediatos por WhatsApp.`;
     const prodImg = (prod.fotos && prod.fotos.length > 0) ? `https://levwild.com/images/products/${prod.fotos[0]}` : 'https://levwild.com/images/brand/logo-lev-nav.png';
     const prodUrl = `https://levwild.com/?p=${slugify(prod.codigo)}`;
@@ -1705,7 +1699,6 @@
   // 12. EVENTOS GLOBALES Y CONTROLES UI
   // ==========================================================================
   function setupEventListeners() {
-    // Disciplinas Desktop
     if (DOM.navDesktop) {
       DOM.navDesktop.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1718,7 +1711,6 @@
       });
     }
 
-    // Menú Móvil Hamburguesa
     if (DOM.mobileMenuToggle && DOM.mobileDrawer) {
       DOM.mobileMenuToggle.addEventListener('click', () => {
         const isOpen = DOM.mobileDrawer.classList.toggle('open');
@@ -1727,7 +1719,6 @@
       });
     }
 
-    // Disciplinas Móvil
     if (DOM.mobileDrawer) {
       DOM.mobileDrawer.querySelectorAll('.drawer-pill[data-discipline]').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1749,7 +1740,6 @@
       });
     }
 
-    // Buscador
     if (DOM.searchInput) {
       DOM.searchInput.addEventListener('input', (e) => {
         state.searchQuery = e.target.value;
@@ -1788,7 +1778,6 @@
       DOM.clearSearchActionBtn.addEventListener('click', resetAllFilters);
     }
 
-    // Modal cerrar
     if (DOM.modalCloseBtn) {
       DOM.modalCloseBtn.addEventListener('click', () => closeProductModal(true));
     }
@@ -1801,7 +1790,6 @@
       });
     }
 
-    // Tecla ESC para cerrar modales
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (zoomState.isOpen) closeFullscreenZoom();
@@ -1809,7 +1797,6 @@
       }
     });
 
-    // Smooth scroll suave para enlaces con data-action="scroll-catalogo"
     document.querySelectorAll('[data-action="scroll-catalogo"], .announcement-link').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
