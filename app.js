@@ -176,12 +176,11 @@
 
   function getProductWhatsAppUrl(prod, customGreeting = 'Quiero pedir información y comprar') {
     const nombre = (prod.nombre || 'Producto LEV').trim();
-    const codigo = (prod.codigo || '').trim();
     const variante = prod.subcategoria ? ` en color/modelo *${prod.subcategoria}*` : '';
     const priceStr = formatPriceText(prod.precio);
     const precio = priceStr ? ` por el valor de *${priceStr}*` : '';
     
-    const msg = `¡Hola LEV Wild Spirit! 👋 ${customGreeting}: *${nombre}* (Ref: *${codigo}*)${variante}${precio}. ¿Tienen stock disponible y cuál es el procedimiento de entrega?`;
+    const msg = `¡Hola LEV Wild Spirit! 👋 ${customGreeting}: *${nombre}*${variante}${precio}. ¿Tienen stock disponible y cuál es el procedimiento de entrega?`;
     return `https://wa.me/${CONFIG.defaultWhatsapp}?text=${encodeURIComponent(msg)}`;
   }
 
@@ -197,7 +196,7 @@
 
     let html = '';
     state.videos.forEach(vid => {
-      const vidWaMsg = `¡Hola LEV Wild Spirit! 👋 Vi el video de *${vid.producto_nombre || vid.titulo}* (Ref: *${vid.producto_ref}*) en su catálogo web y quiero consultar disponibilidad y precio.`;
+      const vidWaMsg = `¡Hola LEV Wild Spirit! 👋 Vi el video de *${vid.producto_nombre || vid.titulo}* en su catálogo web y quiero consultar disponibilidad y precio.`;
       const vidWaUrl = `https://wa.me/${CONFIG.defaultWhatsapp}?text=${encodeURIComponent(vidWaMsg)}`;
 
       html += `
@@ -527,7 +526,6 @@
         <div class="carousel-slide active">
           <div class="photo-placeholder">
             <span class="placeholder-icon">${getCategoryEmoji(prod.categoria)}</span>
-            <span class="placeholder-code">${prod.codigo}</span>
           </div>
         </div>
       `;
@@ -594,7 +592,6 @@
       <article class="product-card" data-code="${prod.codigo}" data-category="${prod.categoria}" data-discipline="${prod.disciplina || 'todos'}">
         <div class="product-carousel" data-card-id="${cardId}">
           <div class="carousel-badges">
-            <span class="badge-code">REF: ${prod.codigo}</span>
             ${hasVideo ? `<span class="badge-video">🎬 Video</span>` : ''}
             ${prod.subcategoria ? `<span class="badge-variant">${prod.subcategoria}</span>` : ''}
           </div>
@@ -854,7 +851,7 @@
         <img src="${CONFIG.imagesPath}${photos[0]}" 
              id="modalMainImg" 
              alt="${prod.nombre}"
-             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span><span class=\'placeholder-code\'>${prod.codigo}</span></div>';">
+             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'photo-placeholder\'><span class=\'placeholder-icon\'>${getCategoryEmoji(prod.categoria)}</span></div>';">
         <div class="modal-zoom-hint">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
           <span>Pasa el cursor para zoom &bull; Clic para ver gigante</span>
@@ -864,7 +861,6 @@
       mainMediaHtml = `
         <div class="photo-placeholder">
           <span class="placeholder-icon">${getCategoryEmoji(prod.categoria)}</span>
-          <span class="placeholder-code">${prod.codigo}</span>
         </div>
       `;
     }
@@ -901,9 +897,9 @@
           <div class="modal-header-tag">${prod.categoria.toUpperCase()} ${prod.subcategoria ? `&bull; ${prod.subcategoria}` : ''}</div>
           <h2 class="modal-title">${prod.nombre}</h2>
           <div style="display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap;">
-            <span class="badge-code">REF: ${prod.codigo}</span>
-            ${hasVideo ? `<span class="badge-video">🎬 Video en Acción</span>` : ''}
             <span class="badge-brand">${detectBrand(prod)}</span>
+            ${hasVideo ? `<span class="badge-video">🎬 Video en Acción</span>` : ''}
+            ${prod.subcategoria ? `<span class="badge-variant">${prod.subcategoria}</span>` : ''}
           </div>
 
           <p class="modal-description">${prod.descripcion || 'Equipamiento deportivo de élite LEV Wild Spirit diseñado para superar los límites del rendimiento.'}</p>
@@ -2391,7 +2387,7 @@
       "categoria": "Audífonos",
       "subcategoria": "Negros",
       "nombre": "Audífonos deportivos H12",
-      "precio": 33.0,
+      "precio": 30.0,
       "precio_distribuidor": "",
       "descripcion": "Audífonos deportivos inalámbricos, ultraligeros y resistentes al agua, ideales para entrenar.",
       "especificaciones_raw": "Conexión: Bluetooth inalámbrico; Alcance: 10 metros; Tiempo de carga: 2 horas.",
@@ -2415,7 +2411,7 @@
       "categoria": "Audífonos",
       "subcategoria": "Negros",
       "nombre": "Audífonos deportivos OpenAir Duet",
-      "precio": 30.0,
+      "precio": 33.0,
       "precio_distribuidor": "",
       "descripcion": "Audífonos deportivos inalámbricos, ultraligeros y resistentes al agua, con batería de larga duración.",
       "especificaciones_raw": "Conexión: Bluetooth inalámbrico; Autonomía: 5 horas; Resistencia al agua: IPX5; Peso: Ultraligero",
