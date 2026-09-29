@@ -46,7 +46,7 @@
     "price_num": 45.0,
     "price_formatted": "$45.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H15-001",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H15-001",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H15-plomo-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H15-plomo-02.jpg,https://levwild.com/images/meta/casco-promend-12H15-plomo-03.jpg,https://levwild.com/images/meta/casco-promend-12H15-plomo-04.jpg,https://levwild.com/images/meta/casco-promend-12H15-plomo-05.jpg,https://levwild.com/images/meta/casco-promend-12H15-plomo-06.jpg",
     "additional_images": [
@@ -110,7 +110,7 @@
     "price_num": 45.0,
     "price_formatted": "$45.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H15-002",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H15-002",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H15-negrob-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H15-negrob-02.jpg,https://levwild.com/images/meta/casco-promend-12H15-negrob-03.jpg,https://levwild.com/images/meta/casco-promend-12H15-negrob-04.jpg",
     "additional_images": [
@@ -170,7 +170,7 @@
     "price_num": 45.0,
     "price_formatted": "$45.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H15-003",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H15-003",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H15-negror-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H15-negror-03.jpg,https://levwild.com/images/meta/casco-promend-12H15-negror-04.jpg,https://levwild.com/images/meta/casco-promend-12H15-negror-05.jpg,https://levwild.com/images/meta/casco-promend-12H15-negror-01.jpg",
     "additional_images": [
@@ -228,7 +228,7 @@
     "price_num": 37.0,
     "price_formatted": "$37.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H22N-001",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H22N-001",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H22N-negro-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H22N-negro-03.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negro-04.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negro-05.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negro-06.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negro-01.jpg",
     "additional_images": [
@@ -288,7 +288,7 @@
     "price_num": 37.0,
     "price_formatted": "$37.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H22N-002",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H22N-002",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H22N-blanco-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H22N-blanco-03.jpg,https://levwild.com/images/meta/casco-promend-12H22N-blanco-04.jpg,https://levwild.com/images/meta/casco-promend-12H22N-blanco-01.jpg",
     "additional_images": [
@@ -344,7 +344,7 @@
     "price_num": 37.0,
     "price_formatted": "$37.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H22N-003",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H22N-003",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H22N-negrorojo-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H22N-negrorojo-03.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negrorojo-04.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negrorojo-05.jpg,https://levwild.com/images/meta/casco-promend-12H22N-negrorojo-01.jpg",
     "additional_images": [
@@ -402,7 +402,7 @@
     "price_num": 29.0,
     "price_formatted": "$29.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H09-001",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H09-001",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H09-blanco-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H09-blanco-02.jpg,https://levwild.com/images/meta/casco-promend-12H09-blanco-03.jpg,https://levwild.com/images/meta/casco-promend-12H09-blanco-04.jpg",
     "additional_images": [
@@ -458,7 +458,7 @@
     "price_num": 29.0,
     "price_formatted": "$29.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H09-002",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H09-002",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H09-negroplomo-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H09-negroplomo-03.jpg,https://levwild.com/images/meta/casco-promend-12H09-negroplomo-04.jpg,https://levwild.com/images/meta/casco-promend-12H09-negroplomo-01.jpg",
     "additional_images": [
@@ -514,7 +514,7 @@
     "price_num": 29.0,
     "price_formatted": "$29.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-12H09-003",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-12H09-003",
     "image_link": "https://levwild.com/images/meta/casco-promend-12H09-negrorojo-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-promend-12H09-negrorojo-03.jpg,https://levwild.com/images/meta/casco-promend-12H09-negrorojo-04.jpg,https://levwild.com/images/meta/casco-promend-12H09-negrorojo-01.jpg",
     "additional_images": [
@@ -570,7 +570,7 @@
     "price_num": 25.0,
     "price_formatted": "$25.00",
     "currency": "USD",
-    "link": "https://levwild.com/cascos/?p=LEV-CAS-11H01-001",
+    "link": "https://levwild.com/producto/?id=LEV-CAS-11H01-001",
     "image_link": "https://levwild.com/images/meta/casco-bikeboy-11H01-negrob-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/casco-bikeboy-11H01-negrob-02.jpg,https://levwild.com/images/meta/casco-bikeboy-11H01-negrob-03.jpg,https://levwild.com/images/meta/casco-bikeboy-11H01-negrob-04.jpg",
     "additional_images": [
@@ -622,7 +622,7 @@
     "price_num": 29.0,
     "price_formatted": "$29.00",
     "currency": "USD",
-    "link": "https://levwild.com/gafas/?p=LEV-GAF-10H1-001",
+    "link": "https://levwild.com/producto/?id=LEV-GAF-10H1-001",
     "image_link": "https://levwild.com/images/meta/gafa-rockbros-10h1-negroazul-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/gafa-rockbros-10h1-negroazul-02.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-negroazul-03.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-negroazul-04.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-negroazul-05.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-negroazul-06.jpg",
     "additional_images": [
@@ -678,7 +678,7 @@
     "price_num": 29.0,
     "price_formatted": "$29.00",
     "currency": "USD",
-    "link": "https://levwild.com/gafas/?p=LEV-GAF-10H1-002",
+    "link": "https://levwild.com/producto/?id=LEV-GAF-10H1-002",
     "image_link": "https://levwild.com/images/meta/gafa-rockbros-10h1-blancoazul-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/gafa-rockbros-10h1-blancoazul-02.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-blancoazul-03.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-blancoazul-04.jpg",
     "additional_images": [
@@ -730,7 +730,7 @@
     "price_num": 29.0,
     "price_formatted": "$29.00",
     "currency": "USD",
-    "link": "https://levwild.com/gafas/?p=LEV-GAF-10H1-003",
+    "link": "https://levwild.com/producto/?id=LEV-GAF-10H1-003",
     "image_link": "https://levwild.com/images/meta/gafa-rockbros-10h1-verdeblanco-02.jpg",
     "additional_image_link": "https://levwild.com/images/meta/gafa-rockbros-10h1-verdeblanco-03.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-verdeblanco-04.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-verdeblanco-05.jpg,https://levwild.com/images/meta/gafa-rockbros-10h1-verdeblanco-01.jpg",
     "additional_images": [
@@ -788,7 +788,7 @@
     "price_num": 35.0,
     "price_formatted": "$35.00",
     "currency": "USD",
-    "link": "https://levwild.com/gafas/?p=LEV-GAF-10H2-001",
+    "link": "https://levwild.com/producto/?id=LEV-GAF-10H2-001",
     "image_link": "https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-02.jpg,https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-03.jpg,https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-04.jpg,https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-05.jpg,https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-06.jpg,https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-07.jpg,https://levwild.com/images/meta/gafa-rockbros-10h2-negrorojo-08.jpg",
     "additional_images": [
@@ -844,7 +844,7 @@
     "price_num": 30.0,
     "price_formatted": "$30.00",
     "currency": "USD",
-    "link": "https://levwild.com/audifonos/?p=LEV-AUD-H12-001",
+    "link": "https://levwild.com/producto/?id=LEV-AUD-H12-001",
     "image_link": "https://levwild.com/images/meta/audifono-h12-negro-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/audifono-h12-negro-02.jpg,https://levwild.com/images/meta/audifono-h12-negro-03.jpg,https://levwild.com/images/meta/audifono-h12-negro-04.jpg",
     "additional_images": [
@@ -896,7 +896,7 @@
     "price_num": 33.0,
     "price_formatted": "$33.00",
     "currency": "USD",
-    "link": "https://levwild.com/audifonos/?p=LEV-AUD-OPENAIR-001",
+    "link": "https://levwild.com/producto/?id=LEV-AUD-OPENAIR-001",
     "image_link": "https://levwild.com/images/meta/audifono-openair-duet-negro-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/audifono-openair-duet-negro-02.jpg,https://levwild.com/images/meta/audifono-openair-duet-negro-03.jpg,https://levwild.com/images/meta/audifono-openair-duet-negro-04.jpg",
     "additional_images": [
@@ -956,7 +956,7 @@
     "price_num": 21.0,
     "price_formatted": "$21.00",
     "currency": "USD",
-    "link": "https://levwild.com/luces-traseras/?p=LEV-LUZ-FRENO-001",
+    "link": "https://levwild.com/producto/?id=LEV-LUZ-FRENO-001",
     "image_link": "https://levwild.com/images/meta/luz-trasera-sensorfreno-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/luz-trasera-sensorfreno-02.jpg,https://levwild.com/images/meta/luz-trasera-sensorfreno-03.jpg,https://levwild.com/images/meta/luz-trasera-sensorfreno-04.jpg",
     "additional_images": [
@@ -1016,7 +1016,7 @@
     "price_num": 15.0,
     "price_formatted": "$15.00",
     "currency": "USD",
-    "link": "https://levwild.com/luces-traseras/?p=LEV-LUZ-FRENO-002",
+    "link": "https://levwild.com/producto/?id=LEV-LUZ-FRENO-002",
     "image_link": "https://levwild.com/images/meta/luz-trasera-sensorfreno002-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/luz-trasera-sensorfreno002-02.jpg,https://levwild.com/images/meta/luz-trasera-sensorfreno002-03.jpg",
     "additional_images": [
@@ -1070,7 +1070,7 @@
     "price_num": 33.0,
     "price_formatted": "$33.00",
     "currency": "USD",
-    "link": "https://levwild.com/luces-delanteras/?p=LEV-LUZ-1300-001",
+    "link": "https://levwild.com/producto/?id=LEV-LUZ-1300-001",
     "image_link": "https://levwild.com/images/meta/luz-delantera-1300lm-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/luz-delantera-1300lm-02.jpg,https://levwild.com/images/meta/luz-delantera-1300lm-03.jpg,https://levwild.com/images/meta/luz-delantera-1300lm-04.jpg",
     "additional_images": [
@@ -1126,7 +1126,7 @@
     "price_num": 28.0,
     "price_formatted": "$28.00",
     "currency": "USD",
-    "link": "https://levwild.com/luces-delanteras/?p=LEV-LUZ-1000-001",
+    "link": "https://levwild.com/producto/?id=LEV-LUZ-1000-001",
     "image_link": "https://levwild.com/images/meta/luz-delantera-1000lm-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/luz-delantera-1000lm-02.jpg,https://levwild.com/images/meta/luz-delantera-1000lm-03.jpg,https://levwild.com/images/meta/luz-delantera-1000lm-04.jpg",
     "additional_images": [
@@ -1190,7 +1190,7 @@
     "price_num": 11.0,
     "price_formatted": "$11.00",
     "currency": "USD",
-    "link": "https://levwild.com/luces-traseras/?p=LEV-LUZ-COB-001",
+    "link": "https://levwild.com/producto/?id=LEV-LUZ-COB-001",
     "image_link": "https://levwild.com/images/meta/luz-trasera-cob-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/luz-trasera-cob-02.jpg,https://levwild.com/images/meta/luz-trasera-cob-03.jpg,https://levwild.com/images/meta/luz-trasera-cob-04.jpg",
     "additional_images": [
@@ -1254,7 +1254,7 @@
     "price_num": 16.0,
     "price_formatted": "$16.00",
     "currency": "USD",
-    "link": "https://levwild.com/luces-delanteras/?p=LEV-LUZ-DUAL-001",
+    "link": "https://levwild.com/producto/?id=LEV-LUZ-DUAL-001",
     "image_link": "https://levwild.com/images/meta/luz-dual-blancoroja-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/luz-dual-blancoroja-02.jpg,https://levwild.com/images/meta/luz-dual-blancoroja-03.jpg,https://levwild.com/images/meta/luz-dual-blancoroja-04.jpg",
     "additional_images": [
@@ -1314,7 +1314,7 @@
     "price_num": 14.0,
     "price_formatted": "$14.00",
     "currency": "USD",
-    "link": "https://levwild.com/guantes/?p=LEV-GUA-001",
+    "link": "https://levwild.com/producto/?id=LEV-GUA-001",
     "image_link": "https://levwild.com/images/meta/guante-ciclismo-adulto-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/guante-ciclismo-adulto-02.jpg,https://levwild.com/images/meta/guante-ciclismo-adulto-03.jpg,https://levwild.com/images/meta/guante-ciclismo-adulto-04.jpg,https://levwild.com/images/meta/guante-ciclismo-adulto-05.jpg",
     "additional_images": [
@@ -1376,7 +1376,7 @@
     "price_num": 12.0,
     "price_formatted": "$12.00",
     "currency": "USD",
-    "link": "https://levwild.com/guantes/?p=LEV-GUA-NINO-001",
+    "link": "https://levwild.com/producto/?id=LEV-GUA-NINO-001",
     "image_link": "https://levwild.com/images/meta/guante-nino-knightlaood-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/guante-nino-knightlaood-02.jpg",
     "additional_images": [
@@ -1428,7 +1428,7 @@
     "price_num": 37.0,
     "price_formatted": "$37.00",
     "currency": "USD",
-    "link": "https://levwild.com/componentes/?p=LEV-PED-MTB-001",
+    "link": "https://levwild.com/producto/?id=LEV-PED-MTB-001",
     "image_link": "https://levwild.com/images/meta/pedal-mixto-mtb-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/pedal-mixto-mtb-02.jpg,https://levwild.com/images/meta/pedal-mixto-mtb-03.jpg,https://levwild.com/images/meta/pedal-mixto-mtb-04.jpg,https://levwild.com/images/meta/pedal-mixto-mtb-05.jpg",
     "additional_images": [
@@ -1486,7 +1486,7 @@
     "price_num": 25.0,
     "price_formatted": "$25.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-MOCHDEL-001",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-MOCHDEL-001",
     "image_link": "https://levwild.com/images/meta/mochila-delantera-bici-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/mochila-delantera-bici-02.jpg,https://levwild.com/images/meta/mochila-delantera-bici-03.jpg,https://levwild.com/images/meta/mochila-delantera-bici-04.jpg",
     "additional_images": [
@@ -1542,7 +1542,7 @@
     "price_num": 25.0,
     "price_formatted": "$25.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-RINESC-001",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-RINESC-001",
     "image_link": "https://levwild.com/images/meta/rinonera-escalada-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/rinonera-escalada-02.jpg,https://levwild.com/images/meta/rinonera-escalada-03.jpg,https://levwild.com/images/meta/rinonera-escalada-04.jpg",
     "additional_images": [
@@ -1590,7 +1590,7 @@
     "price_num": 20.0,
     "price_formatted": "$20.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-GYM",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-GYM",
     "image_link": "https://levwild.com/images/meta/bolsa-gym-magnetica-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/bolsa-gym-magnetica-02.jpg",
     "additional_images": [
@@ -1634,7 +1634,7 @@
     "price_num": 18.0,
     "price_formatted": "$18.00",
     "currency": "USD",
-    "link": "https://levwild.com/gorras/?p=LEV-GOR-001",
+    "link": "https://levwild.com/producto/?id=LEV-GOR-001",
     "image_link": "https://levwild.com/images/meta/gorra-ciclismo-01.jpg",
     "additional_image_link": "https://levwild.com/images/meta/gorra-ciclismo-02.jpg,https://levwild.com/images/meta/gorra-ciclismo-03.jpg,https://levwild.com/images/meta/gorra-ciclismo-04.jpg",
     "additional_images": [
@@ -1698,7 +1698,7 @@
     "price_num": 36.0,
     "price_formatted": "$36.00",
     "currency": "USD",
-    "link": "https://levwild.com/audifonos/?p=LEV-AUD-LANG-TS19-001",
+    "link": "https://levwild.com/producto/?id=LEV-AUD-LANG-TS19-001",
     "image_link": "https://levwild.com/images/meta/audifono-ts19-beige-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/audifono-ts19-beige-002.jpg,https://levwild.com/images/meta/audifono-ts19-beige-003.jpg,https://levwild.com/images/meta/audifono-ts19-beige-004.jpg",
     "additional_images": [
@@ -1762,7 +1762,7 @@
     "price_num": 36.0,
     "price_formatted": "$36.00",
     "currency": "USD",
-    "link": "https://levwild.com/audifonos/?p=LEV-AUD-LANG-TS19-002",
+    "link": "https://levwild.com/producto/?id=LEV-AUD-LANG-TS19-002",
     "image_link": "https://levwild.com/images/meta/audifono-ts19-gris-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/audifono-ts19-gris-002.jpg,https://levwild.com/images/meta/audifono-ts19-gris-003.jpg,https://levwild.com/images/meta/audifono-ts19-gris-004.jpg",
     "additional_images": [
@@ -1826,7 +1826,7 @@
     "price_num": 36.0,
     "price_formatted": "$36.00",
     "currency": "USD",
-    "link": "https://levwild.com/audifonos/?p=LEV-AUD-LANG-TS19-003",
+    "link": "https://levwild.com/producto/?id=LEV-AUD-LANG-TS19-003",
     "image_link": "https://levwild.com/images/meta/audifono-ts19-negro-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/audifono-ts19-negro-002.jpg,https://levwild.com/images/meta/audifono-ts19-negro-003.jpg,https://levwild.com/images/meta/audifono-ts19-negro-004.jpg",
     "additional_images": [
@@ -1882,7 +1882,7 @@
     "price_num": 20.0,
     "price_formatted": "$20.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-ESC-001-AZUL",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-ESC-001-AZUL",
     "image_link": "https://levwild.com/images/meta/bolsa-magnesio-azul-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/bolsa-magnesio-azul-002.jpg,https://levwild.com/images/meta/bolsa-magnesio-azul-003.jpg",
     "additional_images": [
@@ -1936,7 +1936,7 @@
     "price_num": 20.0,
     "price_formatted": "$20.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-ESC-001-AMARILLA",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-ESC-001-AMARILLA",
     "image_link": "https://levwild.com/images/meta/bolsa-magnesio-amarillo-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/bolsa-magnesio-amarillo-002.jpg,https://levwild.com/images/meta/bolsa-magnesio-amarillo-003.jpg",
     "additional_images": [
@@ -1990,7 +1990,7 @@
     "price_num": 20.0,
     "price_formatted": "$20.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-ESC-001-VERDE",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-ESC-001-VERDE",
     "image_link": "https://levwild.com/images/meta/bolsa-magnesio-verde-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/bolsa-magnesio-verde-002.jpg,https://levwild.com/images/meta/bolsa-magnesio-verde-003.jpg",
     "additional_images": [
@@ -2044,7 +2044,7 @@
     "price_num": 20.0,
     "price_formatted": "$20.00",
     "currency": "USD",
-    "link": "https://levwild.com/bolsas/?p=LEV-BOL-ESC-001-NEGRA",
+    "link": "https://levwild.com/producto/?id=LEV-BOL-ESC-001-NEGRA",
     "image_link": "https://levwild.com/images/meta/bolsa-magnesio-negro-001.jpg",
     "additional_image_link": "https://levwild.com/images/meta/bolsa-magnesio-negro-002.jpg,https://levwild.com/images/meta/bolsa-magnesio-negro-003.jpg",
     "additional_images": [
@@ -2090,11 +2090,11 @@
   // Evento Pixel de WhatsApp Contact
   function trackWhatsAppContact(product) {
     try {
-      if (typeof fbq === 'function') {
-        fbq('track', 'Contact', {
+      if (window.fbq) {
+        window.fbq('track', 'Contact', {
           content_ids: [product.id],
           content_type: 'product',
-          value: Number(product.price_num || 0),
+          value: parseFloat(product.price) || Number(product.price_num || 0),
           currency: 'USD'
         });
       }
@@ -2106,14 +2106,13 @@
   // Evento Pixel de Carga de Producto ViewContent
   function trackProductView(product) {
     try {
-      if (typeof fbq === 'function') {
-        fbq('track', 'PageView');
-        fbq('track', 'ViewContent', {
+      if (window.fbq) {
+        window.fbq('track', 'ViewContent', {
           content_ids: [product.id],
           content_type: 'product',
           content_name: product.title,
           content_category: product.custom_label_1 || product.categoria,
-          value: Number(product.price_num || 0),
+          value: parseFloat(product.price) || Number(product.price_num || 0),
           currency: 'USD'
         });
       }
@@ -2147,7 +2146,6 @@
     const container = document.getElementById('product-content');
     if (!container) return;
 
-    // Seleccionar 4 productos destacados para recomendar
     const featured = allProducts.slice(0, 4);
 
     container.innerHTML = `
@@ -2214,6 +2212,9 @@
     const container = document.getElementById('product-content');
     if (!container) return;
 
+    // Disparar ViewContent en Meta Pixel al cargar el producto
+    trackProductView(product);
+
     // Actualizar Metas y Título del documento
     document.title = `${product.title} | LEV Wild Spirit`;
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -2230,7 +2231,6 @@
        (p.categoria && p.categoria.toLowerCase() === (product.categoria || '').toLowerCase()))
     );
 
-    // Si hay menos de 4, completar con otros
     let related = [...sameCategory];
     if (related.length < 4) {
       const others = allProducts.filter(p => p.id !== product.id && !related.some(r => r.id === p.id));
@@ -2491,7 +2491,7 @@
       }, { passive: true });
     }
 
-    // WhatsApp Tracking Clicks
+    // WhatsApp Tracking Clicks (Botón principal y Sticky)
     const btnMain = document.getElementById('btn-whatsapp-main');
     const btnSticky = document.getElementById('btn-whatsapp-sticky');
 
@@ -2507,8 +2507,14 @@
       });
     }
 
-    // Disparar evento de ViewContent en Meta Pixel
-    trackProductView(product);
+    // Manejador global para cualquier enlace que apunte a WhatsApp en la página
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      if (link !== btnMain && link !== btnSticky) {
+        link.addEventListener('click', () => {
+          trackWhatsAppContact(product);
+        });
+      }
+    });
   }
 
   // Inicialización de la aplicación
